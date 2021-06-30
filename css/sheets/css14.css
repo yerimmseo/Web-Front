@@ -1,0 +1,48 @@
+p > span {
+    white-space: pre-wrap;
+}
+
+#inline-sample > span {
+    background-color: lightcoral;
+    color: white;
+    border: solid 1px black;
+    width: 140px;
+    height: 100px;
+
+    display: inline;
+}
+
+#block-sample > span {
+    background-color: lightcoral;
+    color: white;
+    border: solid 1px black;
+    width: 140px;
+    height: 100px;
+
+    display: block;
+}
+
+#inline-block-sample > span {
+    background-color: lightcoral;
+    color: white;
+    border: solid 1px black;
+    width: 140px;
+    height: 100px;
+
+    display: inline-block;
+}
+
+p.test {
+    width: 500px;
+    height: 300px;
+    background-color: coral;
+    color: white;
+}
+
+.none {
+    display: none;
+}
+
+.hidden {
+    visibility: hidden;
+}

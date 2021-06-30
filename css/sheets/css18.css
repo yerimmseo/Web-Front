@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+.content {
+    border: solid 3px black;
+    padding: 15px;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 1.8em;
+}
+
+.content > img:first-of-type {
+    width: 340px;
+    float: right;
+    margin-left: 15px;
+    margin-bottom: 0px;
+}
+
+.content > img:nth-of-type(2) {
+    width: 340px;
+    float: left;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+.content > img + p::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.container2 {
+    font-size: 35px;
+    color: white;
+}
+
+.container2 > div:first-child {
+    background-color: darkturquoise;
+    width: 100%;
+    float: left;
+    padding: 50px;
+}
+
+.container2 > div:nth-child(2) {
+    background-color: darkslategrey;
+    width: 20%;
+    float: left;
+    padding: 50px;
+    height: 500px;
+}
+
+.container2 > div:nth-child(3) {
+    background-color: dodgerblue;
+    float: left;
+    padding: 50px;
+    height: 400px;
+    width: 80%;
+}
+
+.container2 > div:nth-child(4) {
+    background-color: darkseagreen;
+    float: left;
+    height: 100px;
+    width: 80%;
+    padding: 30px;
+    padding-left: 50px;
+}
+
+.container2::after {
+    display: block;
+    clear: both;
+    content: "";
+}

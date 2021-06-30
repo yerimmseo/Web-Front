@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13_가상요소.html</title>
+    <style>
+        /* 첫 번째 글자만 스타일 변경 */
+        #example {
+            text-indent: 1.0em;
+            text-align: justify;
+        }
+
+        #example::first-letter {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 2.0em;
+        }
+
+        #example::first-line {
+            text-decoration: underline solid 1px black;
+        }
+
+        #example::selection {
+            background-color: cadetblue;
+            color: aquamarine;
+        }
+
+        /* 해당 요소 내부의 맨 앞에 내용을 추가할 수 있다 */
+        #example::before {
+            content: "before로 추가된 내용입니다.";
+        }
+
+        /* 해당 요소 내부의 맨 뒤에 내용을 추가할 수 있다 */
+        #example::after {
+            content: "after로 추가된 내용입니다.";
+        }
+    </style>
+</head>
+<body>
+    
+    <h3># 가상 요소 (Pseudo Element)</h3>
+
+    <ul>
+        <li>가상 요소는 해당 요소의 특정 부분을 선택할 수 있다</li>
+        <li>선택자 뒤에 ::을 붙여 원하는 부분만 선택한다</li>
+        <li>::first-letter</li>
+        <li>::first-line</li>
+        <li>::selection</li>
+        <li>::before</li>
+        <li>::after</li>
+    </ul>
+
+    <hr>
+
+    <p id="example">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Nulla porta mi et lectus ultrices, dignissim placerat sapien convallis.
+        Nam vehicula faucibus diam posuere ultrices. Nam mattis lorem et auctor rutrum.
+        Mauris rutrum elit dapibus dolor venenatis rhoncus. 
+        Sed sit amet lectus at ante bibendum posuere a sed purus. 
+        Morbi mattis elit lacus, nec pulvinar arcu elementum a. 
+        Integer eget nunc at erat auctor elementum. 
+        Fusce sollicitudin nunc quis augue elementum ullamcorper. 
+        Integer malesuada orci diam. Proin congue lectus sit amet justo placerat condimentum.
+    </p>
+
+</body>
+</html>

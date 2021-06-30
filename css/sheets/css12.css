@@ -1,0 +1,74 @@
+dl {
+    font-size: 35px;
+    border: dashed orange 3px;
+    padding: 30px;
+}
+
+dt {
+    font-weight: bold;
+    border: lightpink 3px solid;
+    border-radius: 15px;
+    background-color: lemonchiffon;
+    padding: 5px;
+}
+
+dd {
+    font-size: 0.7em;
+}
+
+dd:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+#click {
+    background-color: rgb(248, 0, 0);
+    color: white;
+    padding: 15px 10px;
+    border-radius: 5px;
+    font-size: 30px;
+    width: 150px;
+
+    border: outset gray 5px;
+    user-select: none;
+}
+
+#click:active {
+    background-color: maroon;
+    border-style: inset;
+}
+
+/* Hide the toggle checkbox */
+#expand-toggle {
+    display: none;
+}
+  
+/* Hide expandable content by default */
+.expandable {
+    visibility: collapse;
+    background: #ddd;
+}
+  
+/* Style the button */
+#expand-btn {
+    display: inline-block;
+    margin-top: 12px;
+    margin-left: 50px;
+    padding: 5px 11px;
+    background-color: mediumaquamarine;
+    color: white;
+    border: 1px solid;
+    border-radius: 15px;
+}
+  
+/* Show hidden content when the checkbox is checked */
+#expand-toggle:checked ~ * .expandable {
+    visibility: visible;
+}
+  
+/* Style the button when the checkbox is checked */
+#expand-toggle:checked ~ #expand-btn {
+    background-color: midnightblue;
+    color: white;
+}

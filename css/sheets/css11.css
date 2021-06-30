@@ -1,0 +1,26 @@
+.material-icons {
+    color: cornflowerblue;
+    font-size: 50px;
+} 
+
+.material-icons-sharp {
+    color: lightcoral;
+    font-size: 50px;
+}
+
+.material-icons-two-tone {
+    color: lightseagreen;
+    font-size: 50px;
+}
+
+.small {
+    font-size: 15px;
+}
+
+.normal {
+    font-size: 25px;
+}
+
+.big {
+    font-size: 35px;
+}

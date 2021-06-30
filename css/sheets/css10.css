@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Gugi&family=Noto+Sans+KR:wght@300&family=Sunflower:wght@300;500&display=swap');
+
+html {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+div {
+    font-size: 35px;
+}
+
+#div1 {
+    font-family: 'Gugi', cursive;
+}
+
+#div2 {
+    font-family: 'Sunflower', sans-serif;
+}

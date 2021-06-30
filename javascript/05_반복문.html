@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_반복문</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300&display=swap');
+
+        #gugudan { 
+            font-family: 'Gothic A1', sans-serif;
+            display: grid;
+            background-color: black;
+            
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+            border: solid 1px black;
+            column-gap: 1px;
+            row-gap: 1px;
+        }
+        
+        #gugudan > div {
+            text-align: center;
+            background-color: white;
+            padding: 13px;
+        }
+
+        #gugudan > .name {
+            background-color: mediumaquamarine;
+            color: white;
+            font-weight: bold;
+        }
+        /* 구구단을 이쁘게 꾸미는 스타일시트를 작성해보세요 */
+    </style>
+</head>
+<body>
+    
+    <h3># JavaScript에도 for문과 while문이 있다.</h3>
+
+    <div id="gugudan"></div>
+
+    <script>
+        // 구구단을 생성하는 자바스크립트를 작성해보세요
+        const gugudan = document.getElementById("gugudan");
+
+        for (i = 0; i <= 9; i++) {
+            for (j = 2; j <= 9; j++) {
+                if (i == 0) {
+                    var div = document.createElement('div');
+                    div.classList.add('name');
+                    var dan = document.createTextNode(j + ' 단');
+                    div.appendChild(dan);
+                    gugudan.appendChild(div);
+                } else {
+                    var div = document.createElement('div');
+                    div.classList.add('dan' + j);
+                    var dan = document.createTextNode(j + ' * ' + i + ' = ' + i * j);
+                    div.appendChild(dan);
+                    gugudan.appendChild(div);
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

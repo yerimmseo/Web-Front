@@ -5,15 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>09_배열 순차적으로 처리하기</title>
+    <style>
+        .score {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            color: black;
+            border-top: solid 1px black;
+            border-left: solid 1px black;
+        }
+
+        span {
+            /* display: inline-block; */
+            border-right: solid 1px black;
+            border-bottom: solid 1px black;
+            text-align: center;
+            padding: 6px;
+        }
+
+        span:first-of-type {
+            color: red;
+            font-weight: 600;
+        }
+        
+        table {
+            text-align: center;
+        }
+        
+        tr.worst {
+            color: red;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        tr.normal {
+            color: black;
+        }
+    </style>
 </head>
 <body>
 
     <h3># 자바스크립트 스타일로 데이터 처리하기</h3>
 
     <ul id="out"></ul>
+    <table id="score"></table>
+    <table id="failed" border="3">
+        <tr>
+            <th>번호</th>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+            <th>평균</th>
+        </tr>
+    </table>
 
     <script>
-        const numbers = [45, 1, 9, 100, 55, 22, -37];
+        // function 키워드로 생성하지 않는 함수는 맨 위에 있어야 한다
+        const getRandomScore = () => parseInt(Math.random() * 101);
+
+        const numbers = [45, 1, 9, 100, 55, 22, 37];
         let result = "";
 
         // forEach에 사용할 함수를 전달해준다.
@@ -56,11 +105,87 @@
         console.log('필터 결과3: ', filter_result3);
 
         /*
-            국/영/수 점수를 가진 랜덤 학생 100명을 자바스크립트 오브젝트로 생성하고
-            1. map()을 이용해 모든 학생들의 평균 점수 배열을 생성
-            2. filter()를 이용해 평균 점수가 70점 이하인 학생들로 이루어진 배열을 생성하여 html 테이블에 출력
-               (점수가 가장 낮은 학생은 빨간 글씨로 출력)
+           국/영/수 점수를 가진 랜덤 학생 100명을 자바스크립트 오브젝트로 생성하고
+           1. map()을 이용해 모든 학생들의 평균 점수 배열을 생성
+           2. filter()를 이용해 평균 점수가 70점 이하인 학생들로 이루어진 배열을 생성하여 html 테이블에 출력
+              (점수가 가장 낮은 학생은 빨간 글씨로 출력)
         */
+        var students = [];
+        var stu_avgs;
+
+        for (i = 0; i < 100; i++) {
+            students.push({
+                stu_num: 1 + i,
+                kor: getRandomScore(),
+                eng: getRandomScore(),
+                math: getRandomScore(),
+            });
+            // var student = {kor: 0, eng: 0, mat: 0};
+            // student.kor = parseInt(Math.random() * 100);
+            // student.eng = parseInt(Math.random() * 100);
+            // student.mat = parseInt(Math.random() * 100);
+            // students.push(student);
+        }
+        console.log(students);
+
+        students.forEach((value, index, array) => {
+            array[index]['avg'] = (value.kor + value.eng + value.math) / 3.0;
+        });
+        console.log(students);
+
+        const avg = students.map(function (value) {
+            return ((total = value.kor + value.eng + value.mat) / 3.0).toFixed(2);
+        });
+
+        const failed = students.filter((stu) => {
+            return stu.avg <= 70;
+        });
+
+        // reduce를 이용해 가장 점수가 낮은 평균 점수를 구하고
+        // 해당 점수인 학생들의 출력 색상을 빨간색으로 바꿔보세요
+        const worst_avg = failed.reduce((worst, stu) => worst < stu.avg ? worst : stu.avg, 100);
+        console.log('worst stu num: ', worst_avg);
+
+        const failed_table_rows = failed.map((stu) => {
+            return `<tr class="${stu.avg == worst_avg ? 'worst' : 'normal'}">
+                        <td>${stu.stu_num}</td>
+                        <td>${stu.kor}</td>
+                        <td>${stu.eng}</td>
+                        <td>${stu.math}</td>
+                        <td>${stu.avg}</td>
+                    </tr>`;
+        });
+
+        document.getElementById("failed").innerHTML +=
+            failed_table_rows.reduce((accumulator, row) => accumulator + row, '');
+
+        /* 
+           # reduce(callback, init_value)
+           - 배열 내의 모든 내용들을 순차적으로 사용해 하나의 결과를 생성한다.
+           - callback(acc, value, index, arr)
+             acc: accumulator, 누산기, 값이 누적되는 곳
+             value: 순차적으로 꺼낸 값
+             ...
+        */
+        var reduce_result = numbers.reduce((acc, value) => acc + value, 0);
+        console.log('reduce_result: ', reduce_result);
+        
+        //-- 다른 풀이 방법 --
+        const avg_below_70 = avg.sort((a, b) => { return a - b }).filter(value => { return value <= 70 });
+        console.log(avg_below_70);
+
+        avg_below_70.forEach(value => {
+            document.getElementById("score").innerHTML += `<span>${value}</span>`;
+        });
+
+        /*
+           # every
+           - 배열 내의 모든 요소들이 테스트를 통과하는지 검사한다
+        */
+        // ex: numbers의 값이 모두 양수인지 검사하고 싶을 때
+        var test_result = numbers.every(value => value >= 0);
+
+        console.log('numbers의 값이 모두 양수인가요? ', test_result);
 
 
         // 함수 선언은 자바 스크립트에서 가장 먼저 실행된다. (맨 밑에 있더라도)
@@ -84,6 +209,7 @@
         function myMapFunction(value, index, array) {
             return value + 10;
         }
+
     </script>
     
 </body>

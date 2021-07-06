@@ -22,6 +22,8 @@
         <li>document.getElementById(id)</li>
         <li>document.getElementsByTagName(tag_name)</li>
         <li>document.getElementsByClassName(class_name)</li>
+        <li>document.querySelector(css_selector)</li>
+        <li>document.querySelectorAll(css_selector)</li>
     </ul>
 
     <h3># 찾은 HTML요소를 변경하는 방법</h3>
@@ -43,36 +45,70 @@
 
     <button id="warning_btn">경고!</button>
     <button id="warning_off">경고 끄기</button>
+
+    <hr>
+
+    <img src="../assets/image/fruits.jpg" width="300"><br>
+    <button id="prev_img">Prev</button>
+    <button id="next_img">Next</button>
     
     <script>
+        const main_image = document.querySelector('img');
+        const img_path_list = [
+            '../assets/image/pingu1.jpg',
+            '../assets/image/pingu2.jpg',
+            '../assets/image/pingu3.jpg',
+            '../assets/image/fruits.jpg',
+        ];
+        let img_index = 0;
+
         // document: 웹브라우저가 HTML문서를 해석하여 생성해놓은 웹페이지 구조
         const warningBtn = document.getElementById('warning_btn');
         const warningOffBtn = document.getElementById('warning_off');
+        
+        // const warningNodes = document.getElementsByTagName('li');
+        const warningNodes = document.querySelectorAll('.warning');
 
+        const prevImage = () => main_image.src = img_path_list[--img_index < 0 ? (img_index = img_path_list.length - 1) : img_index];
+        const nextImage = () => img_path_list[(img_index = ++img_index % img_path_list.length)];
+     
+        document.querySelector("#prev_img").addEventListener(
+            'click', (e) => {
+                // main_image.src = prevImage();
+                main_image.setAttribute('src', prevImage());
+            }
+        );
+
+        document.querySelector("#next_img").addEventListener(
+            'click', (e) => {
+                // main_image.src = nextImage();
+                main_image.setAttribute('src', nextImage());
+            }
+        );
+        
         warningBtn.addEventListener('click', (e) => {
             makeWarning();
         })
-
+        
         warningOffBtn.addEventListener('click', (e) => {
-            turnOffWarning();
+            WarningOff();
         })
-
-        function turnOffWarning() {
-            const nodes = document.getElementsByClassName('warning');
-
-            for (i = 0; i < nodes.length; i++) {
-                nodes[i].style.backgroundColor = 'white';
-                nodes[i].style.padding = '0px';
-                nodes[i].style.border = 'none';
-            }
+        
+        function WarningOff() {
+            Array.from(warningNodes).forEach((node) => {
+                node.style.backgroundColor = 'white';
+                node.style.padding = '0px';
+                node.style.border = 'none';
+            });
         }
 
         function makeWarning() {
             // nodes는 Array가 아닌 Array 사촌(HTMLCollection)이다. (forEach가 구현되어 있지 않음)
-            const nodes = document.getElementsByClassName('warning');
+            // const nodes = document.getElementsByClassName('warning');
+            // const nodes = document.getElementsByTagName('li');
 
             // forEach를 사용하고 싶다면 Array.from()으로 배열로 변환할 수 있다
-            Array.from(nodes).forEach((node) => {
+            Array.from(warningNodes).forEach((node) => {
                 node.style.backgroundColor = 'yellow';
                 node.style.padding = '15px';
                 node.style.border = 'dashed 3px black';

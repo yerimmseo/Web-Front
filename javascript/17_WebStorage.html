@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17_WebStorage</title>
+    <style>
+    </style>
+</head>
+<body>
+    
+    <h3># Web Strorage API</h3>
+
+    <ul>
+        <li>웹 브라우저에서 제공하는 약간의 저장 공간</li>
+        <li>사용자의 웹 브라우저 상에 웹 페이지를 운용하는데 필요한 약간의 데이터를 저장해 둘 수 있다</li>
+        <li>Key:Value 형태</li>
+        <li>로컬 스토리지는 웹 브라우저를 종료하더라도 데이터가 유지된다</li>
+        <li>세션 스토리지는 웹 브라우저를 종료하면 데이터가 삭제된다</li>
+    </ul>
+
+    <hr>
+
+    <h3># 로컬 스토리지에 저장되는 게임</h3>
+    <ul>
+        <li>자바스크립트로 동작하는 가위바위보 게임을 하나 만든다</li>
+        <li>로컬 스토리지에 사용자 이름과 전적이 저장된다</li>
+        <li>다시 접속하더라도 저장된 데이터를 이용하여 게임이 이어서 진행되도록 만들어보세요</li>
+    </ul>
+
+    <hr>
+    <h3># 가위바위보 게임</h3>
+    <div class="vs">
+        <img class="user" name="user_select" src="../assets/image/rock.PNG">
+        <img class="computer" name="computer_select" src="../assets/image/rock.PNG">
+    </div>
+    </div>
+    <div class="choice">
+        <img class="rock"  src="../assets/image/rock.PNG">
+        <img class="scissors" src="../assets/image/scissors.PNG">
+        <img class="paper" src="../assets/image/paper.PNG">
+    </div>
+    <div class="score"></div>
+
+    <script>
+        const image_list = [
+            "../assets/image/rock.png",
+            "../assets/image/scissors.png",
+            "../assets/image/paper.png",
+        ];
+        const user_img = document.querySelector('.user');
+        const computer_img = document.querySelector('.computer');
+        const list = ['rock', 'paper', 'scissors'];
+
+        (function () {
+            const user_name = localStorage.getItem("name");
+
+            if (user_name == null) {
+                alert("첫 방문을 환영합니다!");
+                localStorage.setItem("name", prompt("당신의 이름을 입력해주세요"));
+                var score = {"total": 0, "win": 0, "tie": 0, "lose": 0};
+            } else {
+                alert(`${user_name}님 환영합니다!`);
+                var score = JSON.parse(localStorage.getItem("score"));
+                if (score != null) {
+                    // alert(`
+                    //             ----- 지난 게임 전적 -----
+                    //     승리=${score.win} 무승부=${score.tie} 패배=${score.lose} 총 횟수=${score.total}`);
+                    // game(score);
+                } else {
+                    var score = {"total": 0, "win": 0, "tie": 0, "lose": 0};
+                    // game(score);
+                }
+            }
+        })();
+
+        document.querySelector('.rock').addEventListener(
+            'click', (e) => {
+                gameStart(0)
+            }
+        );
+
+        document.querySelector('.scissors').addEventListener(
+            'click', (e) => {
+                gameStart(1);
+            }
+        );
+
+        document.querySelector('.paper').addEventListener(
+            'click', (e) => {
+                gameStart(2);
+            }
+        );
+
+        function gameStart(number) {
+            var random = parseInt(Math.random() * 3);
+            document.user_select.src = image_list[number];
+            document.computer_select.src = image_list[random];
+            const user_name = localStorage.getItem("name");
+
+            if (user_name == null) {
+                alert("첫 방문을 환영합니다!");
+                localStorage.setItem("name", prompt("당신의 이름을 입력해주세요"));
+                var score = {"total": 0, "win": 0, "tie": 0, "lose": 0};
+            } else {
+                alert(`${user_name}님 환영합니다!`);
+                var score = JSON.parse(localStorage.getItem("score"));
+                if (score != null) {
+                    // alert(`
+                    //             ----- 지난 게임 전적 -----
+                    //     승리=${score.win} 무승부=${score.tie} 패배=${score.lose} 총 횟수=${score.total}`);
+                    // game(score);
+                    if (number == 0) {
+                        if (random == 0) {
+                            score.tie++;
+                        } else if (random == 1) {
+                            score.win++;
+                        } else if (random == 2) {
+                            score.lose++;
+                        }
+                    }
+                    localStorage.setItem("score", JSON.stringify(score));
+                    console.log(score);
+                    score.total++;
+                } else {
+                    var score = {"total": 0, "win": 0, "tie": 0, "lose": 0};
+                    // game(score);
+                }
+            }
+
+        }
+
+        // (function () {
+        //     const user_name = localStorage.getItem("name");
+
+        //     if (user_name == null) {
+        //         alert("첫 방문을 환영합니다!");
+        //         localStorage.setItem("name", prompt("당신의 이름을 입력해주세요"));
+        //         var score = {"total": 0, "win": 0, "tie": 0, "lose": 0};
+        //     } else {
+        //         alert(`${user_name}님 환영합니다!`);
+        //         var score = JSON.parse(localStorage.getItem("score"));
+        //         if (score != null) {
+        //             alert(`
+        //                         ----- 지난 게임 전적 -----
+        //                 승리=${score.win} 무승부=${score.tie} 패배=${score.lose} 총 횟수=${score.total}`);
+        //             game(score);
+        //         } else {
+        //             var score = {"total": 0, "win": 0, "tie": 0, "lose": 0};
+        //             game(score);
+        //         }
+        //     }
+        // })();
+
+        // function game(score) {
+        //     const list = ['가위', '바위', '보'];
+
+        //     while(true) {
+        //         const user = prompt("가위, 바위, 보 선택\n그만하기-'종료' 입력");
+        //         const computer = list[parseInt(Math.random() * 3)];
+
+        //         if (user === '가위' || user === '바위' || user === '보') {
+        //             if (user === '가위') {
+        //                 if (computer === '바위') {
+        //                     alert("computer=" + computer +' user=' + user + '\n패배');
+        //                     score.lose++;
+        //                 } else if (computer === '가위') {
+        //                     alert("computer= " + computer +' user=' + user + '\n무승부');
+        //                     score.tie++;
+        //                 } else if (computer === '보') {
+        //                     alert("computer= " + computer +' user=' + user + '\n승리');
+        //                     score.win++;
+        //                 }
+        //             } else if (user === '바위') {
+        //                 if (computer === '가위') {
+        //                     alert("computer= " + computer +' user=' + user + '\n승리');
+        //                     score.win++;
+        //                 } else if (user === '바위') {
+        //                     alert("computer= " + computer +' user=' + user + '\n무승부');
+        //                     score.tie++;
+        //                 } else if (user === '보') {
+        //                     alert("computer= " + computer +' user=' + user + '\n패배');
+        //                     score.lose++;
+        //                 }
+        //             } else if (user === '보') {
+        //                 if (computer === '가위') {
+        //                     alert("computer= " + computer +' user=' + user + '\n패배');
+        //                     score.lose++;
+        //                 } else if (computer === '바위') {
+        //                     alert("computer= " + computer +' user=' + user + '\n승리');
+        //                     score.win++;
+        //                 } else if (computer === '보') {
+        //                     alert("computer= " + computer +' user=' + user + '\n무승부');
+        //                     score.tie++;
+        //                 }
+        //             }
+        //             score.total++;
+        //         } else if (user === '종료') {
+        //             localStorage.setItem("score", JSON.stringify(score));
+        //             console.log(score);
+        //             break;
+        //         } else {
+        //             alert("다시 입력해주세요!");
+        //         }
+        //     }
+        // }
+    </script>
+
+</body>
+</html>

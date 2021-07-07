@@ -6,6 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>17_WebStorage</title>
     <style>
+        #versus {
+            display: inline-block;
+            width: 100px;
+            height: 150px;
+            font-weight: bold;
+            /* font-style: italic; */
+            font-size: 100px;
+            vertical-align: top;
+            color: turquoise;
+            text-shadow: -10px -1px steelblue;
+            padding-right: 50px;
+            padding-left: 50px;
+        }
+
+        .body {
+            width: 800px;
+            display: grid;
+            margin: auto;
+            padding: 30px;
+        }
+
+        .body > div {
+            margin: auto;
+        }
+
+        .turn > div {
+            display: inline-block;
+            width: 170px;
+            text-align: center;
+            margin: auto;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        div {
+            width: 600px;
+            text-align: center;
+        }
+
+        .choice > img {
+            padding: 13px;
+        }
+
+        img {
+            width: 150;
+            height: 150;
+        }
+
+        .select {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .score {
+            font-size: 40px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -31,17 +88,25 @@
 
     <hr>
     <h3># 가위바위보 게임</h3>
-    <div class="vs">
-        <img class="user" name="user_select" src="../assets/image/rock.PNG">
-        <img class="computer" name="computer_select" src="../assets/image/rock.PNG">
+    <div class="body">
+        <div class="vs">
+            <img class="user" name="user_select" src="../assets/image/rock.PNG">
+            <div id="versus">VS</div>
+            <img class="computer" name="computer_select" src="../assets/image/rock.PNG"><br>
+        </div>
+        <div class="turn">
+            <div>user</div>
+            <div></div>
+            <div>computer</div>
+        </div>
+        <div class="choice">
+            <img class="rock"  src="../assets/image/rock.PNG">
+            <img class="scissors" src="../assets/image/scissors.PNG">
+            <img class="paper" src="../assets/image/paper.PNG">
+        </div>
+        <div class="select">user 선택하기!</div>
+        <div class="score"></div>
     </div>
-    </div>
-    <div class="choice">
-        <img class="rock"  src="../assets/image/rock.PNG">
-        <img class="scissors" src="../assets/image/scissors.PNG">
-        <img class="paper" src="../assets/image/paper.PNG">
-    </div>
-    <div class="score"></div>
 
     <script>
         const image_list = [
@@ -51,7 +116,9 @@
         ];
         const user_img = document.querySelector('.user');
         const computer_img = document.querySelector('.computer');
+        const score_set = document.querySelector('.score');
         const list = ['rock', 'paper', 'scissors'];
+        var score = {"total": 0, "win": 0, "tie": 0, "lose": 0};
 
         (function () {
             const user_name = localStorage.getItem("name");
@@ -59,18 +126,14 @@
             if (user_name == null) {
                 alert("첫 방문을 환영합니다!");
                 localStorage.setItem("name", prompt("당신의 이름을 입력해주세요"));
-                var score = {"total": 0, "win": 0, "tie": 0, "lose": 0};
             } else {
                 alert(`${user_name}님 환영합니다!`);
-                var score = JSON.parse(localStorage.getItem("score"));
+                score = JSON.parse(localStorage.getItem("score"));
                 if (score != null) {
-                    // alert(`
-                    //             ----- 지난 게임 전적 -----
-                    //     승리=${score.win} 무승부=${score.tie} 패배=${score.lose} 총 횟수=${score.total}`);
-                    // game(score);
+                    alert(`                     ----- 지난 전적 -----
+                        ${score.win}승 ${score.tie}무 ${score.lose}패`)
                 } else {
-                    var score = {"total": 0, "win": 0, "tie": 0, "lose": 0};
-                    // game(score);
+                    score = {"total": 0, "win": 0, "tie": 0, "lose": 0};
                 }
             }
         })();
@@ -93,10 +156,64 @@
             }
         );
 
+        window.setInterval(() => {
+            getScore();
+        }, 100);
+
+        function getScore() {
+            score_set.innerHTML = `${score.win}승 ${score.tie}무 ${score.lose}패`;
+        }
+
         function gameStart(number) {
             var random = parseInt(Math.random() * 3);
             document.user_select.src = image_list[number];
             document.computer_select.src = image_list[random];
+
+            game(number, random);
+        }
+
+        function game(number, random) {
+            if (number == 0) { // 바위 일 때
+                if (random == 0) {
+                    score.tie++;
+                    alert('무승부');
+                } else if (random == 1) {
+                    score.win++;
+                    alert('승리');
+                } else if (random == 2) {
+                    score.lose++;
+                    alert('패배');
+                }
+            } else if (number == 1) { // 가위 일 때
+                if (random == 0) {
+                    score.lose++;
+                    alert('패배');
+                } else if (random == 1) {
+                    score.tie++;
+                    alert('무승부');
+                } else if (random == 2) {
+                    score.win++;
+                    alert('승리');
+                }
+            } else if (number == 2) { // 보 일 때
+                if (random == 0) {
+                    score.win++;
+                    alert('승리');
+                } else if (random == 1) {
+                    score.lose++;
+                    alert('패배');
+                } else if (random == 2) {
+                    score.tie++;
+                    alert('무승부');
+                }
+            }
+            score.total++;
+            localStorage.setItem("score", JSON.stringify(score));
+            console.log(score);
+        }
+
+        /* 팝업창으로 가위바위보 게임 만들기
+        (function () {
             const user_name = localStorage.getItem("name");
 
             if (user_name == null) {
@@ -107,104 +224,70 @@
                 alert(`${user_name}님 환영합니다!`);
                 var score = JSON.parse(localStorage.getItem("score"));
                 if (score != null) {
-                    // alert(`
-                    //             ----- 지난 게임 전적 -----
-                    //     승리=${score.win} 무승부=${score.tie} 패배=${score.lose} 총 횟수=${score.total}`);
-                    // game(score);
-                    if (number == 0) {
-                        if (random == 0) {
-                            score.tie++;
-                        } else if (random == 1) {
-                            score.win++;
-                        } else if (random == 2) {
-                            score.lose++;
-                        }
-                    }
-                    localStorage.setItem("score", JSON.stringify(score));
-                    console.log(score);
-                    score.total++;
+                    alert(`
+                                ----- 지난 게임 전적 -----
+                        승리=${score.win} 무승부=${score.tie} 패배=${score.lose} 총 횟수=${score.total}`);
+                    game(score);
                 } else {
                     var score = {"total": 0, "win": 0, "tie": 0, "lose": 0};
-                    // game(score);
+                    game(score);
                 }
             }
+        })();
 
+        function game(score) {
+            const list = ['가위', '바위', '보'];
+
+            while(true) {
+                const user = prompt("가위, 바위, 보 선택\n그만하기-'종료' 입력");
+                const computer = list[parseInt(Math.random() * 3)];
+
+                if (user === '가위' || user === '바위' || user === '보') {
+                    if (user === '가위') {
+                        if (computer === '바위') {
+                            alert("computer=" + computer +' user=' + user + '\n패배');
+                            score.lose++;
+                        } else if (computer === '가위') {
+                            alert("computer= " + computer +' user=' + user + '\n무승부');
+                            score.tie++;
+                        } else if (computer === '보') {
+                            alert("computer= " + computer +' user=' + user + '\n승리');
+                            score.win++;
+                        }
+                    } else if (user === '바위') {
+                        if (computer === '가위') {
+                            alert("computer= " + computer +' user=' + user + '\n승리');
+                            score.win++;
+                        } else if (user === '바위') {
+                            alert("computer= " + computer +' user=' + user + '\n무승부');
+                            score.tie++;
+                        } else if (user === '보') {
+                            alert("computer= " + computer +' user=' + user + '\n패배');
+                            score.lose++;
+                        }
+                    } else if (user === '보') {
+                        if (computer === '가위') {
+                            alert("computer= " + computer +' user=' + user + '\n패배');
+                            score.lose++;
+                        } else if (computer === '바위') {
+                            alert("computer= " + computer +' user=' + user + '\n승리');
+                            score.win++;
+                        } else if (computer === '보') {
+                            alert("computer= " + computer +' user=' + user + '\n무승부');
+                            score.tie++;
+                        }
+                    }
+                    score.total++;
+                } else if (user === '종료') {
+                    localStorage.setItem("score", JSON.stringify(score));
+                    console.log(score);
+                    break;
+                } else {
+                    alert("다시 입력해주세요!");
+                }
+            }
         }
-
-        // (function () {
-        //     const user_name = localStorage.getItem("name");
-
-        //     if (user_name == null) {
-        //         alert("첫 방문을 환영합니다!");
-        //         localStorage.setItem("name", prompt("당신의 이름을 입력해주세요"));
-        //         var score = {"total": 0, "win": 0, "tie": 0, "lose": 0};
-        //     } else {
-        //         alert(`${user_name}님 환영합니다!`);
-        //         var score = JSON.parse(localStorage.getItem("score"));
-        //         if (score != null) {
-        //             alert(`
-        //                         ----- 지난 게임 전적 -----
-        //                 승리=${score.win} 무승부=${score.tie} 패배=${score.lose} 총 횟수=${score.total}`);
-        //             game(score);
-        //         } else {
-        //             var score = {"total": 0, "win": 0, "tie": 0, "lose": 0};
-        //             game(score);
-        //         }
-        //     }
-        // })();
-
-        // function game(score) {
-        //     const list = ['가위', '바위', '보'];
-
-        //     while(true) {
-        //         const user = prompt("가위, 바위, 보 선택\n그만하기-'종료' 입력");
-        //         const computer = list[parseInt(Math.random() * 3)];
-
-        //         if (user === '가위' || user === '바위' || user === '보') {
-        //             if (user === '가위') {
-        //                 if (computer === '바위') {
-        //                     alert("computer=" + computer +' user=' + user + '\n패배');
-        //                     score.lose++;
-        //                 } else if (computer === '가위') {
-        //                     alert("computer= " + computer +' user=' + user + '\n무승부');
-        //                     score.tie++;
-        //                 } else if (computer === '보') {
-        //                     alert("computer= " + computer +' user=' + user + '\n승리');
-        //                     score.win++;
-        //                 }
-        //             } else if (user === '바위') {
-        //                 if (computer === '가위') {
-        //                     alert("computer= " + computer +' user=' + user + '\n승리');
-        //                     score.win++;
-        //                 } else if (user === '바위') {
-        //                     alert("computer= " + computer +' user=' + user + '\n무승부');
-        //                     score.tie++;
-        //                 } else if (user === '보') {
-        //                     alert("computer= " + computer +' user=' + user + '\n패배');
-        //                     score.lose++;
-        //                 }
-        //             } else if (user === '보') {
-        //                 if (computer === '가위') {
-        //                     alert("computer= " + computer +' user=' + user + '\n패배');
-        //                     score.lose++;
-        //                 } else if (computer === '바위') {
-        //                     alert("computer= " + computer +' user=' + user + '\n승리');
-        //                     score.win++;
-        //                 } else if (computer === '보') {
-        //                     alert("computer= " + computer +' user=' + user + '\n무승부');
-        //                     score.tie++;
-        //                 }
-        //             }
-        //             score.total++;
-        //         } else if (user === '종료') {
-        //             localStorage.setItem("score", JSON.stringify(score));
-        //             console.log(score);
-        //             break;
-        //         } else {
-        //             alert("다시 입력해주세요!");
-        //         }
-        //     }
-        // }
+        */
     </script>
 
 </body>

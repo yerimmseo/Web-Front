@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@300&display=swap');
+
+html {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* 홈페이지 안에 div요소 꽉차게 하기 위함 */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    border: solid 1px black;
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: flex;
+    /* width: 100%시 웹페이지 벗어나지 않게 하기위해 box-sizing: border-box 적용 */
+    /* width: 100%; */
+    /* box-sizing: border-box; */
+    justify-content: space-between;
+    margin: auto;
+    padding: 15px;
+    margin-top: 2%;
+    font-size: 30px;
+    align-items: center;
+    transition: all .5s;
+}
+
+.nav-bar {
+    display: flex;
+}
+
+.nav-bar > div {
+    border: solid 1px black;
+    display: flex;
+    margin-left: 30px;
+    padding: 5px;
+    font-size: 25px;
+}
+
+.hidden-nav-bar-body {
+    background-color: rgba(0, 0, 0, .3);
+    /* 화면에 꽉차게 설정 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+
+.hidden-menu-body {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    padding-top: 35%;
+    padding-left: 10%;
+}
+
+.hidden-nav-bar {
+    display: grid;
+    grid-template-rows: auto;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    /* left: 100%를 이용해서 화면에서 안보이게 설정 */
+    left: 100%;
+    background-color: white;
+    transition: all 1s;
+}
+
+.hidden-nav-bar > div {
+    color: black;
+}
+
+/*--- 크기 줄였을 때 메뉴버튼[=] 만들기 ---*/
+input[id="hidden-btn"] {
+    display: none;
+}
+
+input[id="hidden-btn"] + label {
+    display: block;
+    width: 40px;
+    height: 25px;
+    position: relative;
+    cursor: pointer; /* 마우스 커서를 포인터로 바꾸는 속성값 */
+}
+
+input[id="hidden-btn"] + label span {
+    display: block;
+    position: absolute;
+    width: 32px;
+    height: 4px;
+    border-radius: 50px;
+    background: black;
+}
+
+input[id="hidden-btn"] + label span:nth-child(1) {
+    top: 0;
+}
+
+input[id="hidden-btn"] + label span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%); /* 메뉴버튼의 가운데 줄을 가운데 정확하게 맞추기위해 설정한 값 */
+}
+
+input[id="hidden-btn"] + label span:nth-child(3) {
+    bottom: 0;
+}
+/*---*/
+
+input[id="hidden-btn"]:checked + label + div + div {
+    /* input이 checked가 됬을 때 left: 20%로 설정 */
+    left: 20%;
+    transition: all 1s;
+}
+
+/*--- 숨은 메뉴의 닫는 버튼[X] 만들기 ---*/
+input[id="close-btn"] {
+    display: none;
+}
+
+input[id="close-btn"] + label {
+    display: block;
+    width: 40px;
+    height: 25px;
+    position: relative;
+    cursor: pointer; /* 마우스 커서를 포인터로 바꾸는 속성값 */
+}
+
+input[id="close-btn"] + label span {
+    display: block;
+    position: absolute;
+    width: 32px;
+    height: 4px;
+    border-radius: 50px;
+    background: black;
+}
+
+input[id="close-btn"] + label span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+input[id="close-btn"] + label span:nth-child(2) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+/*---*/
+
+.close-btn-body {
+    position: fixed;
+    width: 100%;
+    height: 200px;
+    /* background-color: yellowgreen; */
+}
+
+.close-btn-body > * {
+    left: 70%;
+    right: auto;
+    top: 30%;
+}
+
+.menus {
+    padding-top: 10%;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.my-info {
+    padding-top: 10%;
+}
+
+#name {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#job {
+    padding-top: 1%;
+    font-size: 15px;
+}
+/* -----------------------------------------------header & menu style */
+
+.content-body > * {
+    border: solid 1px black;
+    width: 100%;
+    height: 800px;
+}
+
+.header.on {
+    margin-top: 0;
+    top: 0;
+    height: 50px;
+    background-color: cadetblue;
+    transition: all .5s;
+}
+
+/* 0 ~ 700px 까지. 화면이 작아졌을 경우 */
+@media screen and (max-width: 850px) {
+    /* 메뉴 보이지 않게 하기
+     * display: none 공간이 사라짐 
+     * visibility: hidden 공간이 그대로임
+     * */
+    .nav-bar {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .menus {
+        padding-top: 2%;
+        font-size: 70px;
+    }
+
+    #name {
+        font-size: 30px;
+    }
+
+    #job {
+        font-size: 18px;
+    }
+}
+
+/* 701px ~ 화면이 커졌을 경우 */
+@media screen and (min-width: 851px) {
+    .hidden-btn + label {
+        display: none !important;
+    }
+
+    input[id="hidden-btn"]:checked + label + div + div {
+        /* input이 checked가 된 경우, 크기를 늘렸을 때 메뉴가 들어갈 수 있게 설정 */
+        right: 0;
+        left: 100%;
+    }    
+}

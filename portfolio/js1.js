@@ -1,11 +1,13 @@
 const body = document.querySelector('body');
+const header = document.querySelector('.header');
 const hidden_btn = document.querySelector('.hidden-btn');
 const hidden_nav_bar = document.querySelector('.hidden-nav-bar');
 const hidden_nav_bar_body = document.querySelector('.hidden-nav-bar-body');
 const close_btn = document.querySelector('.close-btn');
-const header = document.querySelector('.header');
 
-let scrollPosition = 0;
+function openHiddenNavBar() {
+    hidden_nav_bar_body.setAttribute("style", "display: flex");
+}
 
 function closeHiddenNavBar() {
     // x버튼 누를 시 메뉴 버튼의 checked를 해제시켜준다.
@@ -14,20 +16,12 @@ function closeHiddenNavBar() {
     hidden_nav_bar_body.setAttribute("style", "display: none");
 }
 
-function scrollEnable() {
-    scrollPosition = window.pageYOffset;
+function scroll_off() {
     body.style.overflow = 'hidden';
-    body.style.position = 'fixed';
-    body.style.top = `${scrollPosition}px`;
-    body.style.width = '100%';
 }
 
-function scorllDisable() {
+function scroll_on() {
     body.style.removeProperty('overflow');
-    body.style.removeProperty('position');
-    body.style.removeProperty('top');
-    body.style.removeProperty('width');
-    window.scrollTo(0, scrollPosition);
 }
 
 window.addEventListener('scroll', (e) => {
@@ -39,18 +33,17 @@ window.addEventListener('scroll', (e) => {
 });
 
 hidden_btn.addEventListener('click', (e) => {
-    hidden_nav_bar_body.setAttribute("style", "display: flex");
-    scrollEnable();
+    openHiddenNavBar();
+    scroll_off();
 });
 
 close_btn.addEventListener('click', (e) => {
     closeHiddenNavBar();
-    
-    scorllDisable();
+    scroll_on();
 });
 
 hidden_nav_bar_body.addEventListener('click', (e) => {
     closeHiddenNavBar();
-    scorllDisable();
+    scroll_on();
 });
 

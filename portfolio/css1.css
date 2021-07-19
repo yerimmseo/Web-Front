@@ -8,6 +8,7 @@ html {
 html, body {
     margin: 0;
     padding: 0;
+
 }
 
 .header {
@@ -38,6 +39,7 @@ html, body {
     margin-left: 30px;
     padding: 5px;
     font-size: 25px;
+    cursor: pointer;
 }
 
 .hidden-nav-bar-body {
@@ -171,6 +173,10 @@ input[id="close-btn"] + label span:nth-child(2) {
     font-weight: bold;
 }
 
+.menus > * {
+    cursor: pointer;
+}
+
 .my-info {
     padding-top: 10%;
 }
@@ -189,7 +195,7 @@ input[id="close-btn"] + label span:nth-child(2) {
 .content-body > * {
     border: solid 1px black;
     width: 100%;
-    height: 800px;
+    height: 900px;
 }
 
 .header.on {

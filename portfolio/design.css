@@ -8,25 +8,28 @@ html {
 html, body {
     margin: 0;
     padding: 0;
-
+    display: grid;
 }
 
 .header {
-    border: solid 1px black;
     position: fixed;
     left: 0;
     right: 0;
     display: flex;
-    /* width: 100%시 웹페이지 벗어나지 않게 하기위해 box-sizing: border-box 적용 */
-    /* width: 100%; */
-    /* box-sizing: border-box; */
     justify-content: space-between;
     margin: auto;
     padding: 15px;
     margin-top: 2%;
-    font-size: 30px;
     align-items: center;
+    user-select: none;
     transition: all .5s;
+}
+
+#header-name {
+    font-size: 35px;
+    font-weight: 800;
+    margin-left: 2%;
+    color: darkseagreen;
 }
 
 .nav-bar {
@@ -34,11 +37,11 @@ html, body {
 }
 
 .nav-bar > div {
-    border: solid 1px black;
     display: flex;
     margin-left: 30px;
     padding: 5px;
     font-size: 25px;
+    font-weight: 500;
     cursor: pointer;
 }
 
@@ -192,7 +195,7 @@ input[id="close-btn"] + label span:nth-child(2) {
 }
 /* -----------------------------------------------header & menu style */
 
-.content-body > * {
+.contents-body > * {
     border: solid 1px black;
     width: 100%;
     height: 900px;
@@ -202,45 +205,125 @@ input[id="close-btn"] + label span:nth-child(2) {
     margin-top: 0;
     top: 0;
     height: 50px;
-    background-color: cadetblue;
+    background-color: rgb(255, 255, 255, .9);
+    box-shadow: 0px 3px 5px rgb(235, 235, 235);
     transition: all .5s;
 }
 
-/* 0 ~ 700px 까지. 화면이 작아졌을 경우 */
-@media screen and (max-width: 850px) {
-    /* 메뉴 보이지 않게 하기
-     * display: none 공간이 사라짐 
-     * visibility: hidden 공간이 그대로임
-     * */
-    .nav-bar {
-        display: none !important;
-    }
+.about-body, .skills-body {
+    text-align: center;
+    display: grid;
+    grid-template-rows: 10% 90%;
 }
 
-@media screen and (min-width: 600px) {
-    .menus {
-        padding-top: 2%;
-        font-size: 70px;
-    }
-
-    #name {
-        font-size: 30px;
-    }
-
-    #job {
-        font-size: 18px;
-    }
+.about-title, .skills-title {
+    font-size: 55px;
+    font-weight: bold;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+    padding: 10px;
 }
 
-/* 701px ~ 화면이 커졌을 경우 */
-@media screen and (min-width: 851px) {
-    .hidden-btn + label {
-        display: none !important;
-    }
-
-    input[id="hidden-btn"]:checked + label + div + div {
-        /* input이 checked가 된 경우, 크기를 늘렸을 때 메뉴가 들어갈 수 있게 설정 */
-        right: 0;
-        left: 100%;
-    }    
+.about-contents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: auto;
 }
+
+.photo-body {
+    margin: auto;
+}
+
+#photo {
+    background-image: url("./profile.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 500px;
+    height: 500px;
+}
+
+.info-body > * {
+    /* margin-bottom: 10%; */
+    margin: 7%;
+}
+
+#profile-title, #education-title, #advantages-title {
+    text-align: left;
+    font-size: 30px;
+    font-weight: 800;
+    padding: 10px;
+}
+
+#profile-contents, #education-contents {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    text-align: justify;
+    line-height: 170%;
+    padding: 10px;
+    padding-top: 20px;
+}
+
+#profile-contents > * {
+    margin-bottom: 7px;
+}
+
+#profile-contents > div:nth-of-type(2n) {
+    padding-left: 20px;
+}
+
+#education-contents > * {
+    margin-bottom: 7px;
+}
+
+#advantages-contents > * {
+    line-height: 170%;
+    text-align: left;
+    padding: 10px;
+    padding-top: 20px;
+    font-size: 16px;
+}
+
+#advantages-contents > div:last-of-type {
+    padding-top: 10px;
+}
+
+#title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#contents {
+    font-size: 16px;
+}
+/* ----------------------------------------------- about me style*/
+
+
+.copy-right-body {
+    display: grid;
+    background-color: rgb(95, 94, 94);
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+    user-select: none;
+}
+
+.copy-right {
+    padding-top: 10px;
+}
+
+.link-icons {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    height: 80px;
+}
+
+.link-icons > div {
+    padding: 10px;
+    font-size: 60px;
+    cursor: pointer;
+}
+
+
+

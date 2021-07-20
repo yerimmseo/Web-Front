@@ -1,0 +1,85 @@
+/* 0 ~ 700px 까지. 화면이 작아졌을 경우 축소 메뉴버튼 생성 */
+@media screen and (max-width: 950px) {
+    /* 메뉴 보이지 않게 하기
+     * display: none 공간이 사라짐 
+     * visibility: hidden 공간이 그대로임
+     * */
+    .nav-bar {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .menus {
+        padding-top: 2%;
+        font-size: 70px;
+    }
+
+    #name {
+        font-size: 30px;
+    }
+
+    #job {
+        font-size: 18px;
+    }
+}
+
+/* 701px ~ 화면이 커졌을 경우 축소 메뉴버튼 사라지게 함 */
+@media screen and (min-width: 951px) {
+    .hidden-btn + label {
+        display: none !important;
+    }
+
+    input[id="hidden-btn"]:checked + label + div + div {
+        /* input이 checked가 된 경우, 크기를 늘렸을 때 메뉴가 들어갈 수 있게 설정 */
+        right: 0;
+        left: 100%;
+    }    
+}
+
+@media screen and (min-width: 1500px) {
+    .info-body {
+        margin: auto;
+    }
+
+    .display-body {
+        display: flex;
+    }
+
+    .display-body > div:last-of-type {
+        margin-left: 5%;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .about-contents {
+        border: solid 1px black;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 30% 70%;
+    }
+
+    .photo-body {
+        width: 100%;
+        height: 100%;
+        border: solid 1px black;
+        background-image: url("./profile.jpg");
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    #photo {
+        display: none;
+        /* background-size: auto;
+        background-position: -500px -1000px; */
+    }
+
+    .info-body {
+        margin: auto;
+    }
+
+    .display-body {
+        display: flex;
+        margin-top: 5%;
+    }
+}

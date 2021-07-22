@@ -37,49 +37,103 @@
     }    
 }
 
+/* 제일 화면 커지는 경우 */
 @media screen and (min-width: 1500px) {
     .info-body {
         margin: auto;
     }
 
+    .photo-body {
+        width: 600px;
+        height: 600px;
+    }
+
     .display-body {
         display: flex;
     }
 
-    .display-body > div:last-of-type {
-        margin-left: 5%;
+    #title {
+        font-size: 19px;
+    }
+
+    #contents {
+        font-size: 17px;
+    }
+
+    #advantages-contents > * {
+        font-size: 17px;
+    }
+
+    #profile-title, #education-title, #advantages-title {
+        font-size: 38px;
     }
 }
 
-@media screen and (max-width: 920px) {
-    .about-contents {
-        border: solid 1px black;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 30% 70%;
-    }
-
+/* 중간 크기 화면 */
+@media screen and (max-width: 960px) {
     .photo-body {
         width: 100%;
-        height: 100%;
-        border: solid 1px black;
-        background-image: url("./profile.jpg");
-        background-repeat: no-repeat;
-        background-size: contain;
     }
-
-    #photo {
-        display: none;
-        /* background-size: auto;
-        background-position: -500px -1000px; */
-    }
-
-    .info-body {
-        margin: auto;
+    
+    .about-contents {
+        display: flex;
+        flex-direction: column;
     }
 
     .display-body {
         display: flex;
-        margin-top: 5%;
+    }
+
+    #profile-title, #education-title, #advantages-title {
+        font-size: 30px;
+    }
+}
+
+/* 화면 제일 작아지는 경우 */
+@media screen and (max-width: 650px) {
+    .display-body {
+        display: grid;
+    }
+
+    #title {
+        font-size: 15px;
+    }
+
+    #contents {
+        font-size: 14px;
+    }
+
+    .about-title {
+        font-size: 45px;
+        padding: 18px;
+    }
+
+    #profile-title, #education-title, #advantages-title {
+        font-size: 25px;
+    }
+
+    #profile-contents > * {
+        margin-bottom: 3px;
+    }
+
+    #education-contents > * {
+        margin-bottom: 3px;
+    }
+
+    #advantages-contents > * {
+        padding-top: 5px;
+        font-size: 14px;
+    }
+
+    #profile-contents, #education-contents {
+        padding-top: 5px;
+    }
+
+    .link-icons > div {
+        font-size: 55px;
+    }
+
+    .copy-right-body  {
+        font-size: 11px;
     }
 }

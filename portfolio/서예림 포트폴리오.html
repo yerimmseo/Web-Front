@@ -97,40 +97,113 @@
             </div>
         </div>
         <div class="skills-body">
-            <div class="skills-title">skills</div>
+            <div class="skills-title">Skills</div>
             <div class="skills-contents">
-                <div id="html"></div>
-                <div id="css"></div>
-                <div id="js"></div>
-                <div id="jquery"></div>
-                <div id="c"></div>
-                <div id="python"></div>
-                <div id="linux"></div>
-                <div id="java"></div>
-                <div id="jsp"></div>
-                <div id="mysql"></div>
-                <div id="oraclexe"></div>
-                <div id="sqldeveloper"></div>
-                <div id="git"></div>
-                <div id="apache"></div>
+                <div class="frontend">
+                    <div id="html"></div>
+                    <div id="css"></div>
+                    <div id="js"></div>
+                    <div id="jquery"></div>
+                </div>
+                <div class="backend">
+                    <div id="c"></div>
+                    <div id="python"></div>
+                    <div id="java"></div>
+                    <div id="jsp"></div>
+                    <div id="mysql"></div>
+                    <div id="oraclexe"></div>
+                </div>
+                <div class="devops">
+                    <div id="aws"></div>
+                    <div id="junit"></div>
+                    <div id="linux"></div>
+                    <div id="git"></div>
+                    <div id="apache"></div>
+                </div>
             </div>
         </div>
-        <div class="projects-body">portfolio</div>
-        <div class="contact-body">contact</div>
-    </div>
-    <div class="copy-right-body">
-        <div class="link-icons">
-            <div id="github"><i class="fab fa-github"></i></div>
-            <div id="instagram"> <i class="fab fa-instagram" id="instagram"><a href="https://www.instagram.com/yerimmseo/"></a></i></div>
+        <div class="projects-body">
+            <div class="projects-title">Projects</div>
+            <div class="projects-contents">
+                <ul class="projects-nav-bar">
+                    <li class="p1"><a href="#">카페 POS 시스템</a></li>
+                    <li class="p2"><a href="#">프로젝트2</a></li>
+                    <li><a href="#">프로젝트3</a></li>
+                </ul>
+                <ul class="projects-view">
+                    <li>
+                        <h3>카페 POS 시스템 제작<span>(6인 팀 프로젝트)</span></h3>
+                        <h4>2021.06.07 ~ 2021.06.20</h4>
+                        <p>임의의 업종을 선택하여 그 업종에 필요한 시스템을 제작하는 것이 프로젝트의 목표입니다.
+                            카페를 주제로 선정하여 필요한 기능을 선별하고, 시스템을 제작하였습니다. 
+                        </p>
+                        <!-- <hr> -->
+                        <p>
+                            주요 구현 기능 <br>
+                            <span>○ 로그인 시 DB에 저장된 직원 정보 일치 비교</span> <br>
+                            <span>○ 설정된 직급에 따른 메뉴 접근 권한 부여</span> <br>
+                            <span>○ 직원 정보 관리</span> <br>
+                            <span>○ 판매 등록</span> <br>
+                            <span>○ 결제 및 적립, 영수증 출력</span> <br>
+                            <span>○ 재고 관리</span> <br>
+                            <span>○ 매출 조회</span> <br>
+                        </p>
+                        <p>사용 프로그램 <br>
+                            <span id="java"></span>
+                            <span id="db"></span>
+                            <span id="git"></span>
+                            <span id="aws"></span>
+                        </p>
+                        <div class="btn-container"><button class="github-team">github 바로가기</button></div>
+                    </li>
+                    <div class="project-slider">
+                        <ul id="imgholder" class="imgs">
+                            <li><img src="./project-slide/slide1.png"></li>
+                            <li><img src="./project-slide/slide2.png"></li>
+                            <li><img src="./project-slide/slide3.png"></li>
+                            <li><img src="./project-slide/slide4.png"></li>
+                            <li><img src="./project-slide/slide5.png"></li>
+                            <li><img src="./project-slide/slide6.png"></li>
+                        </ul>
+                    </div>
+                </ul>
+            </div>
         </div>
-        <div class="copy-right">
-            본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다. <br>
-            Copyright 2021. yerim seo. All rights reserved.
+        <div class="contact-body">
+            <div class="contact-txt">
+                <h1>
+                    <span>C</span>
+                    <span>o</span>
+                    <span>t</span>
+                    <span>a</span>
+                    <span>c</span>
+                    <span>t</span>
+                </h1>
+            </div>
+            <div class="contact-contents">
+                <p>
+                    <span>PHONE</span>
+                    <span>010.5521.7386</span>
+                </p>
+                <p>
+                    <span>EMAIL</span>
+                    <span>yerim7386@naver.com</span>
+                </p>
+            </div>
         </div>
+        <footer class="copy-right-body">
+            <div class="link-icons">
+                <div id="github"><i class="fab fa-github"></i></div>
+                <div id="instagram"> <i class="fab fa-instagram" id="instagram"></i></div>
+            </div>
+            <p class="copy-right">
+                본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다. <br>
+                Copyright 2021. yerim seo. All rights reserved.
+            </p>
+        </footer>
     </div>
 
     <script src="https://kit.fontawesome.com/6d2da08e9d.js" crossorigin="anonymous"></script>
     <script src="./event.js"></script>
-
 </body>
 </html>

@@ -39,6 +39,14 @@
 
 /* 제일 화면 커지는 경우 */
 @media screen and (min-width: 1500px) {
+    .about-body, .contact-body {
+        height: 90vh;
+    }
+
+    .about-title {
+        font-size: 65px;
+    }
+
     .info-body {
         margin: auto;
     }
@@ -67,6 +75,14 @@
     #profile-title, #education-title, #advantages-title {
         font-size: 38px;
     }
+    /*--------------------------*/
+    h1 span {
+        font-size: 80px;
+    }
+
+    .contact-contents {
+        font-size: 30px;
+    }
 }
 
 /* 중간 크기 화면 */
@@ -94,6 +110,14 @@
     .display-body {
         display: grid;
     }
+
+    .contact-body {
+        height: 500px;
+    }
+
+    .projects-body {
+        display: none;
+    } /*구현중*/
 
     #title {
         font-size: 15px;
@@ -135,5 +159,26 @@
 
     .copy-right-body  {
         font-size: 11px;
+    }
+
+    h1 span {
+        font-size: 40px;
+    }
+
+    .contact-txt {
+        margin: auto;
+    }
+
+    .contact-contents {
+        font-size: 14px;
+        margin-top: -230px;
+    }
+    
+    p span:nth-child(2) {
+        padding-left: 15px;
+    }
+
+    h1 span {
+        z-index: -1;
     }
 }

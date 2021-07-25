@@ -12,6 +12,7 @@ const hidden_nav_bar = document.querySelector('.hidden-nav-bar');
 const hidden_nav_bar_body = document.querySelector('.hidden-nav-bar-body');
 const close_btn = document.querySelector('.close-btn');
 
+const github_team = document.querySelector('.github-team');
 const github = document.querySelector('#github');
 const instagram = document.querySelector('#instagram');
 
@@ -34,6 +35,7 @@ function scroll_on() {
     body.style.removeProperty('overflow');
 }
 
+
 contact_btn.addEventListener('click', (e) => {
     document.querySelector('.contact-body').scrollIntoView(true);
 });
@@ -53,6 +55,10 @@ about_btn.addEventListener('click', (e) => {
 home_btn.addEventListener('click', (e) => {
     document.querySelector('.home-body').scrollIntoView(true);
 });
+
+github_team.addEventListener('click', (e) => {
+    window.open('https://github.com/TEAM-right/project-cafe.git');
+})
 
 instagram.addEventListener('click', (e) => {
     window.open('https://www.instagram.com/yerimmseo/');

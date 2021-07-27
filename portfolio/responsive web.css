@@ -38,7 +38,7 @@
 }
 
 /* 제일 화면 커지는 경우 */
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1600px) {
     .about-body, .contact-body {
         height: 90vh;
     }

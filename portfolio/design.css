@@ -210,6 +210,7 @@ input[id="close-btn"] + label span:nth-child(2) {
     height: 50px;
     background-color: rgb(255, 255, 255, .9);
     box-shadow: 0px 3px 5px rgb(235, 235, 235);
+    z-index: 10; /**/
     transition: all .5s;
 }
 
@@ -412,90 +413,115 @@ input[id="close-btn"] + label span:nth-child(2) {
 /* -----------------------------------------------*/
 
 .projects-body { 
-    border:  solid 1px black;
-    /* text-align: center; */
-    /* grid-template-rows: 10% 90%; */
     display: grid;
+    grid-template-rows: 10% 10% 80%;
     justify-content: center;
     align-content: center;
+    margin-bottom: 8%;
 }
+
+.projects-contents {height: auto; display: flex;}
+
 
 .projects-title, 
 .projects-nav-bar {text-align: center;}
 
 
-a {text-decoration: none;}
+a {text-decoration: none; color: black;}
 a:hover {color: black;}
 a:visited {color: black;}
 
-.projects-nav-bar {padding: 10px; margin: 0; padding-top: 20px;}
+.projects-nav-bar {margin: 0; padding-top: 55px;}
 .projects-nav-bar > li {font-size: 19px; font-weight: 600;}
 .projects-nav-bar li {display: inline; border-left: 1px solid #999; padding: 0 10px;}
 .projects-nav-bar li:first-child {border-left: none;}
 
+.projects-view-body {display: grid; margin: 0;}
+
 .projects-view {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    border: solid 1px springgreen;
+    grid-template-columns: 0.9fr 1.1fr;
+    /* padding-top: 10px; */
+    border: solid 1p red;
+}
+
+
+.project-detail {
+    margin: auto;
+    margin-top:50px;
+}
+
+.detail-title {
+    margin: auto;
+}
+
+.detail-title > h3 {
     margin: 0;
-    padding: 0;
-    height: auto;
-}
-
-.projects-view > li {
-    list-style: none;
-    margin: 1.5em;
-}
-.projects-view > li > * {
-
-    margin: 0;
-}
-
-.projects-view > li > h3 {
     text-align: center;
     font-size: 30px;
-    margin-bottom: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-.projects-view > li > h3 > span {
+.detail-title > h3 > span {
     font-size: 23px;
     font-weight: 600;
 }
 
-.projects-view > li > h4 {
+.detail-title > h4 {
+    margin-top: 10px;
     text-align: center;
     font-weight: 450;
     font-size: 17px;
     color: rgb(204, 204, 204);
-    margin-bottom: 20px;
+    margin-bottom: 0;
+}
+
+.detail-contents > * {
+    margin-left: 6%;
+    margin-right: 6%;
 }
 
 
-.projects-view > li > p:first-of-type {
+.detail-contents > p:first-of-type {
     margin-bottom: 20px;
     text-align: justify;
 }
 
-.projects-view > li > p:nth-of-type(2) {
-    /* margin-top: 20px; */
-    margin-bottom: 20px;
-    font-weight: bold;
-    font-size: 20px;
-    /* font-size: ; */
+.detail-contents > h3 {
+    padding-top: 10px;
+    margin-bottom: 10px;
 }
 
-.projects-view > li > p:nth-of-type(2) > span {
+.detail-contents > div:first-of-type {
+    margin-bottom: 20px;
+}
+
+.detail-contents > div:first-of-type > ul {
+    /* list-style: none; */
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+}
+
+.detail-contents > div:first-of-type > ul > li {
+    margin-bottom: 3px;
+}
+
+
+.detail-contents > p:nth-of-type(2) > span {
     font-size: 16px;
     font-weight: normal;
 }
 
-.projects-view > li > p:nth-of-type(3) {
+.detail-contents > p:nth-of-type(2) {
+    padding-top: 10px;
     margin-bottom: 20px;
     font-weight: bold;
     font-size: 20px;
 }
 
-.projects-view > li > p:nth-of-type(3) > span {
+.detail-contents > p:nth-of-type(2) > span {
     margin-top: 10px;
     margin-right: 5px;
     border-radius: 10px;
@@ -525,37 +551,119 @@ p #aws {
     background-image: url('./icon/icons8-amazon-web-services-96.png');
 }
 
-
-.github-team {
-    display: inline-block;
-    background-color: steelblue;
-    padding: 15px;
-    font-size: 19px;
-    color: white;
-    border-radius: 5px;
+.section {
+    margin-right: 4em;
+    display: grid;
+    text-align: center;
+    overflow: hidden;
 }
 
-.project-slider {
-    border: solid 1px tomato;
-    width: 700px;
-    height: 700px;
-    position: relative;
+.slides {
+    border: solid 1px black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     margin: auto;
-    overflow: hidden; /* 현재 슬라이드 오른쪽에 위치한 나머지 슬라이드들이 보이지 않게 하기 위함 */
+    position: relative;
 }
 
-.project-slider > ul {
-    list-style: none;
+.section input[id*="slide"] {
+    display: none;
+}
+.section .slidewrap {
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.section .slidelist {
+    white-space: nowrap;
+    font-size: 0;
     margin: 0;
     padding: 0;
 }
 
-
-.projects-contents {
-    border: teal solid 1px;
-    height: auto;
+.section .slidelist > li {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    transition: all .5s;
 }
 
+.section .slidelist > li > a img {
+    width: 100%;
+    image-rendering: -webkit-optimize-contrast; /* 이미지 선명하게 */
+    /* -webkit-perspective: 1; */
+}
+
+.section .slidelist .left {
+    left: 0;
+    background: url("./icon/left.png") center center / 100% no-repeat;
+    filter: drop-shadow(2px 1px black);
+}
+.section .slidelist .right {
+    right: 0px;
+    background: url("./icon/right.png") center center / 100% no-repeat;
+    filter: drop-shadow(2px 1px black);
+}
+.section .slide-control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+
+.section .slide-control label {
+    position: absolute; 
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 50px;
+    cursor: pointer;
+}
+
+.section .slide-control [class*="control"] {display: none;}
+.section [id="slide01"]:checked ~ .slidewrap .control1 {display: block;}
+.section [id="slide02"]:checked ~ .slidewrap .control2 {display: block;}
+.section [id="slide03"]:checked ~ .slidewrap .control3 {display: block;}
+.section [id="slide04"]:checked ~ .slidewrap .control4 {display: block;}
+.section [id="slide05"]:checked ~ .slidewrap .control5 {display: block;}
+.section [id="slide06"]:checked ~ .slidewrap .control6 {display: block;}
+
+.section [id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+.section [id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+.section [id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+.section [id="slide04"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-300%);}
+.section [id="slide05"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-400%);}
+.section [id="slide06"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-500%);}
+
+
+
+.github-team {
+    margin: -100px;
+    float: left;
+    display: block;
+    width: 140px;
+    height: 40px;
+    margin: 100px 10px 0 0;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    color: #425a73;
+    background-color: #fff;
+    border: 1px solid #425a73;
+    border-radius: 5px;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.github-team:hover {
+    background-color: #425a73;
+    color: white;
+}
+  
+  
 
 
 
@@ -568,13 +676,9 @@ p #aws {
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* visibility: visible;
-    animation-delay: 100ms; */
 }
 
 .contact-body > * {
-    /* margin: auto; */
-    /* border: solid 1px olive; */
 }
 
 .contact-contents  {
@@ -601,7 +705,7 @@ p #aws {
 
 h1 span {
     position: relative;
-    z-index: -1;
+    z-index: 0;
     top: 20px;
     animation: bounce 1s ease infinite alternate;
     font-size: 60px;

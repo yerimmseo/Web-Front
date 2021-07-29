@@ -135,93 +135,104 @@
         <div class="projects-body">
             <div class="projects-title">Projects</div>
             <div class="projects-nav-bar-body">
-                <ul class="projects-nav-bar">
-                    <li class="p1"><a href="#">카페 POS 시스템</a></li>
-                    <li class="p2"><a href="#">프로젝트2</a></li>
-                    <li class="p3"><a href="#">프로젝트3</a></li>
-                </ul>
+                <div class="nav-bar-input">
+                    <input type="radio" name="project" id="project01" checked>
+                    <input type="radio" name="project" id="project02">
+                    <input type="radio" name="project" id="project03">
+                    <ul class="projects-nav-bar">
+                        <li><label for="project01" class="project01">카페 POS 시스템</label></li>
+                        <li><label for="project02" class="project02">프로젝트2</label></li>
+                        <li><label for="project03" class="project03">프로젝트3</label></li>
+                    </ul>
+                </div>
             </div>
             <div class="projects-contents">
-                <div class="projects-view-body">
-                    <div class="projects-view">
-                        <div class="project-detail">
-                            <div class="detail-title">
-                                <h3>카페 POS 시스템 제작<span>(6인 팀 프로젝트)</span></h3>
-                                <h4>2021.06.07 ~ 2021.06.20</h4>
+                <div class="projects-view">
+                    <div class="project-detail">
+                        <div class="detail-title">
+                            <h3>카페 POS 시스템 제작<span>(6인 팀 프로젝트)</span></h3>
+                            <h4>2021.06.07 ~ 2021.06.20</h4>
+                        </div>
+                        <div class="detail-contents">
+                            <p>임의의 업종을 선택하여 그 업종에 필요한 시스템을 제작하는 것이 프로젝트의 목표입니다. <br>
+                                카페를 주제로 선정하여 필요한 기능을 선별하고, 시스템을 제작하였습니다. 
+                            </p>
+                            <!-- <hr> -->
+                            <h3>주요 구현 기능</h3>
+                            <div>
+                                <ul>
+                                    <li>로그인 시 DB에 저장된 직원 정보 일치 비교</li>
+                                    <li>설정된 직급에 따른 메뉴 접근 권한 부여</li>
+                                    <li>직원 정보 관리</li>
+                                    <li>판매 등록</li>
+                                    <li>결제 및 적립, 영수증 출력</li>
+                                    <li>재고 관리</li>
+                                    <li>매출 조회</li>
+                                </ul>
                             </div>
-                            <div class="detail-contents">
-                                <p>임의의 업종을 선택하여 그 업종에 필요한 시스템을 제작하는 것이 프로젝트의 목표입니다. <br>
-                                    카페를 주제로 선정하여 필요한 기능을 선별하고, 시스템을 제작하였습니다. 
-                                </p>
-                                <!-- <hr> -->
-                                <h3>주요 구현 기능</h3>
-                                <div>
-                                    <ul>
-                                        <li>로그인 시 DB에 저장된 직원 정보 일치 비교</li>
-                                        <li>설정된 직급에 따른 메뉴 접근 권한 부여</li>
-                                        <li>직원 정보 관리</li>
-                                        <li>판매 등록</li>
-                                        <li>결제 및 적립, 영수증 출력</li>
-                                        <li>재고 관리</li>
-                                        <li>매출 조회</li>
-                                    </ul>
-                                </div>
-                                <p>사용 프로그램 <br>
-                                    <span id="java"></span>
-                                    <span id="db"></span>
-                                    <span id="git"></span>
-                                    <span id="aws"></span>
-                                </p>
-                                <p class="btn-container"><a class="github-team">github 바로가기</a></p>
+                            <p>사용 프로그램 <br>
+                                <span id="java"></span>
+                                <span id="db"></span>
+                                <span id="git"></span>
+                                <span id="aws"></span>
+                            </p>
+                            <a class="github-team">github 바로가기</a>
+                        </div>
+                    </div>
+                    <div class="slidebox">
+                        <input type="radio" name="slide" id="slide01" checked>
+                        <input type="radio" name="slide" id="slide02">
+                        <input type="radio" name="slide" id="slide03">
+                        <input type="radio" name="slide" id="slide04">
+                        <input type="radio" name="slide" id="slide05">
+                        <input type="radio" name="slide" id="slide06">
+                        <ul class="slidelist">
+                            <li class="slideitem">
+                                <a><img src="./project-slide/slide1.png"></a>
+                            </li>
+                            <li class="slideitem">
+                                <a><img src="./project-slide/slide2.png"></a>
+                            </li>
+                            <li class="slideitem">
+                                <a><img src="./project-slide/slide3.png"></a>
+                            </li>
+                            <li class="slideitem">
+                                <a><img src="./project-slide/slide4.png"></a>
+                            </li>
+                            <li class="slideitem">
+                                <a><img src="./project-slide/slide5.png"></a>
+                            </li>
+                            <li class="slideitem">
+                                <a><img src="./project-slide/slide6.png"></a>
+                            </li>
+                        </ul>
+                        <div class="slide-control">
+                            <div class="control01">
+                                <label for="slide06" class="prev"></label>
+                                <label for="slide02" class="next"></label>
+                            </div>
+                            <div class="control02">
+                                <label for="slide01" class="prev"></label>
+                                <label for="slide03" class="next"></label>
+                            </div>
+                            <div class="control03">
+                                <label for="slide02" class="prev"></label>
+                                <label for="slide04" class="next"></label>
+                            </div>
+                            <div class="control04">
+                                <label for="slide03" class="prev"></label>
+                                <label for="slide05" class="next"></label>
+                            </div>
+                            <div class="control05">
+                                <label for="slide04" class="prev"></label>
+                                <label for="slide06" class="next"></label>
+                            </div>
+                            <div class="control06">
+                                <label for="slide05" class="prev"></label>
+                                <label for="slide01" class="next"></label>
                             </div>
                         </div>
-                        <div class="section">
-                            <div class="slides">
-                                <input type="radio" name="slide" id="slide01" checked>
-                                <input type="radio" name="slide" id="slide02">
-                                <input type="radio" name="slide" id="slide03">
-                                <input type="radio" name="slide" id="slide04">
-                                <input type="radio" name="slide" id="slide05">
-                                <input type="radio" name="slide" id="slide06">
-
-                                <div class="slidewrap">
-                                    <ul class="slidelist">
-                                        <li><a><img src="./project-slide/slide1.png"></a></li>
-                                        <li><a><img src="./project-slide/slide2.png"></a></li>
-                                        <li><a><img src="./project-slide/slide3.png"></a></li>
-                                        <li><a><img src="./project-slide/slide4.png"></a></li>
-                                        <li><a><img src="./project-slide/slide5.png"></a></li>
-                                        <li><a><img src="./project-slide/slide6.png"></a></li>
-                                        <div class="slide-control">
-                                            <div class="control1">
-                                                <label for="slide06" class="left"></label>
-                                                <label for="slide02" class="right"></label>
-                                            </div>
-                                            <div class="control2">
-                                                <label for="slide01" class="left"></label>
-                                                <label for="slide03" class="right"></label>
-                                            </div>
-                                            <div class="control3">
-                                                <label for="slide02" class="left"></label>
-                                                <label for="slide04" class="right"></label>
-                                            </div>
-                                            <div class="control4">
-                                                <label for="slide03" class="left"></label>
-                                                <label for="slide05" class="right"></label>
-                                            </div>
-                                            <div class="control5">
-                                                <label for="slide04" class="left"></label>
-                                                <label for="slide06" class="right"></label>
-                                            </div>
-                                            <div class="control6">
-                                                <label for="slide05" class="left"></label>
-                                                <label for="slide01" class="right"></label>
-                                            </div>
-                                        </div>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="img-frame"></div>
                     </div>
                 </div>
             </div>
@@ -264,6 +275,6 @@
     </div>
 
     <script src="https://kit.fontawesome.com/6d2da08e9d.js" crossorigin="anonymous"></script>
-    <script src="./event.js"></script>
+    <script src="./js/event.js"></script>
 </body>
 </html>

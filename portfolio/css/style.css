@@ -1,12 +1,13 @@
+@charset "UTF-8";
 
 /* 홈페이지 안에 div요소 꽉차게 하기 위함 */
 html, body {width: 100%; height: 100%; display: grid;}
 .contents-body > * {width: 100%; height: 900px;}
 .blink {margin-top: 20rem; margin-bottom: 20rem; width: 0; height: 0;}
 /*---------- html & body & contents-body end ----------*/
-
+/* .header-menu-body {z-index: 9999;} */
 .header {position: fixed; display: flex; left: 0; right: 0; padding: 15px; margin-top: 1.3rem; justify-content: space-between; align-items: center; user-select: none; transition: all .5s;}
-.header.on {margin-top: 0; top: 0; height: 80px; background-color: rgb(255, 255, 255, .9); box-shadow: 0px 3px 5px rgb(235, 235, 235); z-index: 10; transition: all .5s;}
+.header.on {position: fixed; top: 0; margin-top: 0; height: 80px; background-color: rgb(255, 255, 255, .9); box-shadow: 0px 3px 5px rgb(233, 233, 233); z-index: 9999; transition: all .5s;}
 
 .header-name {font-size: 35px; font-weight: 800;  margin-left: 3%; color: darkseagreen;}
 
@@ -89,259 +90,84 @@ input[id="close-btn"] + label span:nth-child(2) {bottom: 50%; transform: transla
 /* ---------------------------------*/
 
 .projects-body {border: solid 1px black; text-align: center; display: grid; height: auto;}
-.projects-title {text-shadow: 5px 5px 10px rgba(0, 0, 0, .2); font-size: 3rem; font-weight: 700; padding: 50px;}
-.projects-contents {height: auto; 
-border: solid 1px olive;}
+.projects-title {text-shadow: 5px 5px 10px rgba(0, 0, 0, .2); font-size: 3rem; font-weight: 700; padding: 50px; padding-bottom: 30px;}
+.projects-contents {height: auto; border: solid 1px olive;}
 
+.projects-nav-bar-body input[id*="project"] {display: none;}
+#project {cursor: pointer;}
+.projects-nav-bar-body [id="project01"]:checked ~ .projects-nav-bar > li > .project01 {font-size: 1.1rem; background-color: rgb(230, 230, 250, 0.8); border-radius: 8px; text-shadow: 1px 1px white; transition: all .8s;}
+.projects-nav-bar-body [id="project02"]:checked ~ .projects-nav-bar > li > .project02 {font-size: 1.1rem; background-color: rgb(230, 230, 250, 0.8); border-radius: 8px; text-shadow: 1px 1px white; transition: all .8s;}
+.projects-nav-bar-body [id="project03"]:checked ~ .projects-nav-bar > li > .project03 {font-size: 1.1rem; background-color: rgb(230, 230, 250, 0.8); border-radius: 8px; text-shadow: 1px 1px white; transition: all .8s;}
 
-a {text-decoration: none; color: black;}
-a:hover {color: black;}
-a:visited {color: black;}
+.projects-nav-bar {padding: 20px;}
+.projects-nav-bar > li {font-size: 1.2rem; font-weight: 600;}
+.projects-nav-bar > li > label {padding: 10px; cursor: pointer;}
+.projects-nav-bar > li > label:hover {font-size: 1.1rem; background-color: rgb(230, 230, 250, 0.8); border-radius: 8px; text-shadow: 1px 1px white; transition: all .8s;}
+.projects-nav-bar > li {display: inline; border-left: 1px solid #999; padding: 0 10px;}
+.projects-nav-bar > li:first-child {border-left: none;}
 
-.projects-nav-bar {padding: 20px; padding-top: 0;}
-.projects-nav-bar > li {font-size: 19px; font-weight: 600;}
-.projects-nav-bar li {display: inline; border-left: 1px solid #999; padding: 0 10px;}
-.projects-nav-bar li:first-child {border-left: none;}
+.projects-view {display: grid; grid-template-columns: 0.8fr 1.2fr;}
 
-.projects-view-body {display: grid; margin: 0;
-border: olive 1px solid; width: 100%; height: 100%;}
-
-
-.projects-view {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    /* padding-top: 10px; */
-}
-
-
-.project-detail {
-    /* margin: auto; */
-    /* margin: 2rem; */
-    /* margin-top:50px; */
-    border: solid 1px red;
-}
-
-.section {
-    border: solid 1px red;
-    height: 100%;
-    /* margin: auto; */
-}
+.project-detail {margin-top:30px; margin-bottom: 30px; display: grid; margin-left: 15%;}
+.project-detail > * {margin: auto;}
 
 .projects-body {
-    border: solid 1px red;
-}
-
-.detail-title {
-    margin: auto;
-}
-
-.detail-title > h3 {
-    margin: 0;
-    text-align: center;
-    font-size: 30px;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-.detail-title > h3 > span {
-    font-size: 23px;
-    font-weight: 600;
-}
-
-.detail-title > h4 {
-    margin-top: 10px;
-    text-align: center;
-    font-weight: 450;
-    font-size: 17px;
-    color: rgb(204, 204, 204);
-    margin-bottom: 0;
-}
-
-.detail-contents > * {
-    margin-left: 6%;
-    margin-right: 6%;
-}
-
-
-.detail-contents > p:first-of-type {
-    margin-bottom: 20px;
-    text-align: justify;
-}
-
-.detail-contents > h3 {
-    padding-top: 10px;
-    margin-bottom: 10px;
-}
-
-.detail-contents > div:first-of-type {
-    margin-bottom: 20px;
-}
-
-.detail-contents > div:first-of-type > ul {
-    /* list-style: none; */
-    margin: 0;
-    padding: 0;
-    padding-left: 20px;
-}
-
-.detail-contents > div:first-of-type > ul > li {
-    margin-bottom: 3px;
-}
-
-
-.detail-contents > p:nth-of-type(2) > span {
-    font-size: 16px;
-    font-weight: normal;
-}
-
-.detail-contents > p:nth-of-type(2) {
-    padding-top: 10px;
-    margin-bottom: 20px;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.detail-contents > p:nth-of-type(2) > span {
-    margin-top: 10px;
-    margin-right: 5px;
-    border-radius: 10px;
-    border: solid 1px gray;
-    padding: 5px;
-    width: 70px;
-    height: 70px;
-    box-shadow: 1px 1px 1px gray;
-}
-
-p span {
-    text-align: center;
-    display: inline-block;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-p #java {
-    background-image: url('./icon/pngwing.png');
-}
-p #db {
-    background-image: url('./icon/database-icon.png');
-}
-p #git {
-    background-image: url('./icon/git-icon.png');
-}
-p #aws {
-    background-image: url('./icon/icons8-amazon-web-services-96.png');
-}
-
-.section {
-    margin-right: 4em;
-    display: grid;
-    text-align: center;
-    overflow: hidden;
-}
-
-.slides {
     border: solid 1px black;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: auto;
-    position: relative;
 }
 
-.section input[id*="slide"] {
-    display: none;
-}
-.section .slidewrap {
-    max-width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-}
-.section .slidelist {
-    white-space: nowrap;
-    font-size: 0;
-    margin: 0;
-    padding: 0;
-}
 
-.section .slidelist > li {
-    display: inline-block;
-    vertical-align: middle;
-    width: 100%;
-    transition: all .5s;
-}
+.detail-title {padding: 10px;}
+.detail-title > h3 {font-size: 1.5rem;}
+.detail-title > h3 > span {font-size: 1.1rem; font-weight: 600;}
+.detail-title > h4 {margin-top: 10px; font-weight: 450; font-size: 1rem; color: rgb(204, 204, 204);}
 
-.section .slidelist > li > a img {
-    width: 100%;
-    image-rendering: -webkit-optimize-contrast; /* 이미지 선명하게 */
-    /* -webkit-perspective: 1; */
-}
+.detail-contents > * {text-align: left; padding-left: 20px; padding-right: 20px;}
+.detail-contents > p:first-of-type {margin-bottom: 20px; text-align: justify; line-height: 170%;}
+.detail-contents > h3 {margin-bottom: 5px; font-size: 1.2rem;}
+.detail-contents > div:first-of-type {margin-bottom: 20px;}
+.detail-contents > div:first-of-type > ul {margin: 0; padding: 0; padding-left: 20px;}
+.detail-contents > div:first-of-type > ul > li {list-style: square; line-height: 170%;}
+.detail-contents > p:nth-of-type(2) {margin-bottom: 20px; font-size: 1.2rem; font-weight: bold;}
+.detail-contents > p:nth-of-type(2) > span {margin-top: 10px; margin-right: 8px; border-radius: 10px; border: solid 1px gray; width: 70px; height: 70px; box-shadow: 1px 1px 1px gray;}
 
-.section .slidelist .left {
-    left: 0;
-    background: url("./icon/left.png") center center / 100% no-repeat;
-    filter: drop-shadow(2px 1px black);
-}
-.section .slidelist .right {
-    right: 0px;
-    background: url("./icon/right.png") center center / 100% no-repeat;
-    filter: drop-shadow(2px 1px black);
-}
-.section .slide-control {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-}
+p span {text-align: center; display: inline-block; background-size: contain; background-repeat: no-repeat;}
+p #java {background-image: url('../icon/pngwing.png');}
+p #db {background-image: url('../icon/database-icon.png');}
+p #git {background-image: url('../icon/git-icon.png');}
+p #aws {background-image: url('../icon/icons8-amazon-web-services-96.png');}
 
-.section .slide-control label {
-    position: absolute; 
-    z-index: 1;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 50px;
-    cursor: pointer;
-}
+.github-team {text-align: center; display: block; width: 160px; padding: 13px; margin-left: 20px; font-size: 1rem; font-weight: 550; color: #425a73; background-color: white; border: 1px solid #425a73; border-radius: 5px; transition: all 0.4s; cursor: pointer;}
+.github-team:hover {background-color: #425a73; color: white;}
 
-.section .slide-control [class*="control"] {display: none;}
-.section [id="slide01"]:checked ~ .slidewrap .control1 {display: block;}
-.section [id="slide02"]:checked ~ .slidewrap .control2 {display: block;}
-.section [id="slide03"]:checked ~ .slidewrap .control3 {display: block;}
-.section [id="slide04"]:checked ~ .slidewrap .control4 {display: block;}
-.section [id="slide05"]:checked ~ .slidewrap .control5 {display: block;}
-.section [id="slide06"]:checked ~ .slidewrap .control6 {display: block;}
+.slidebox {max-width:700px; margin:auto; position:relative;}
+.slidelist {margin: 0; padding: 0;}
+.slidebox .slidelist {position:relative; white-space:nowrap; font-size:0; overflow:hidden;}
+.slidebox .slidelist .slideitem {position:relative; display:inline-block; vertical-align:middle; background-color:#fff; width:100%; transition:all 1s;}
+.slidebox .slidelist .slideitem > a {display:block; width:auto; position:relative;}
+.slidebox .slidelist .slideitem > a img {max-width:100%; height: auto; image-rendering: -webkit-optimize-contrast;}
 
-.section [id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
-.section [id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
-.section [id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
-.section [id="slide04"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-300%);}
-.section [id="slide05"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-400%);}
-.section [id="slide06"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-500%);}
+.slidebox .slide-control [class*="control"] label {position:absolute; z-index:10; top:50%; transform:translateY(-50%); padding:20px; border-radius: 5px; cursor:pointer;}
+.slidebox .slide-control [class*="control"] label.prev {left:-67px; background:rgb(206, 206, 206) url('../icon/left-arrow.png') center center / 50% no-repeat; transition: all .5s;}
+.slidebox .slide-control [class*="control"] label.next {right:-65px; background:rgb(206, 206, 206) url('../icon/right-arrow.png') center center / 50% no-repeat; transition: all .5s;}
 
+[name="slide"] {display:none;}
+#slide01:checked ~ .slidelist .slideitem {left:0;}
+#slide02:checked ~ .slidelist .slideitem {left:-100%;}
+#slide03:checked ~ .slidelist .slideitem {left:-200%;}
+#slide04:checked ~ .slidelist .slideitem {left:-300%;}
+#slide05:checked ~ .slidelist .slideitem {left:-400%;}
+#slide06:checked ~ .slidelist .slideitem {left:-500%;}
 
+.slide-control [class*="control"] {display:none;}
+#slide01:checked ~ .slide-control .control01 {display:block;}
+#slide02:checked ~ .slide-control .control02 {display:block;}
+#slide03:checked ~ .slide-control .control03 {display:block;}
+#slide04:checked ~ .slide-control .control04 {display:block;}
+#slide05:checked ~ .slide-control .control05 {display:block;}
+#slide06:checked ~ .slide-control .control06 {display:block;}
 
-.github-team {
-    margin: -100px;
-    float: left;
-    display: block;
-    width: 140px;
-    height: 40px;
-    margin: 100px 10px 0 0;
-    line-height: 40px;
-    text-align: center;
-    font-size: 16px;
-    color: #425a73;
-    background-color: #fff;
-    border: 1px solid #425a73;
-    border-radius: 5px;
-    transition: all 0.4s;
-    cursor: pointer;
-}
-
-.github-team:hover {
-    background-color: #425a73;
-    color: white;
-}
+.img-frame {position: absolute; width: 800px; height: 570px; top: -28px; left: -48px; background-image: url('../project-slide/frame.png'); background-repeat: no-repeat; background-size: 794px 538px; image-rendering: -webkit-optimize-contrast;}
+/*---------- projects end ----------*/
   
   
 

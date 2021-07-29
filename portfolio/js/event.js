@@ -56,12 +56,12 @@ home_btn.addEventListener('click', (e) => {
     document.querySelector('.home-body').scrollIntoView(true);
 });
 
-github_team.addEventListener('click', (e) => {
-    window.open('https://github.com/TEAM-right/project-cafe.git');
-})
+// github_team.addEventListener('click', (e) => {
+//     window.onload.open('https://github.com/TEAM-right/project-cafe.git'); 이거 왜 오류났지
+// })
 
 instagram.addEventListener('click', (e) => {
-    window.open('https://www.instagram.com/yerimmseo/');
+    window.onload.open('https://www.instagram.com/yerimmseo/');
 });
 
 github.addEventListener('click', (e) => {

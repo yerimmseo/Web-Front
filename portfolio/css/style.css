@@ -5,6 +5,7 @@ html, body {width: 100%; height: 100%; display: grid;}
 .contents-body > * {width: 100%; height: 900px;}
 .blink {margin-top: 20rem; margin-bottom: 20rem; width: 0; height: 0;}
 /*---------- html & body & contents-body end ----------*/
+
 /* .header-menu-body {z-index: 9999;} */
 .header {position: fixed; display: flex; left: 0; right: 0; padding: 15px; margin-top: 1.3rem; justify-content: space-between; align-items: center; user-select: none; transition: all .5s;}
 .header.on {position: fixed; top: 0; margin-top: 0; height: 80px; background-color: rgb(255, 255, 255, .9); box-shadow: 0px 3px 5px rgb(233, 233, 233); z-index: 9999; transition: all .5s;}
@@ -91,7 +92,7 @@ input[id="close-btn"] + label span:nth-child(2) {bottom: 50%; transform: transla
 
 .projects-body {border: solid 1px black; text-align: center; display: grid; height: auto;}
 .projects-title {text-shadow: 5px 5px 10px rgba(0, 0, 0, .2); font-size: 3rem; font-weight: 700; padding: 50px; padding-bottom: 30px;}
-.projects-contents {height: auto; border: solid 1px olive;}
+.projects-contents {height: auto;}
 
 .projects-nav-bar-body input[id*="project"] {display: none;}
 #project {cursor: pointer;}
@@ -110,11 +111,6 @@ input[id="close-btn"] + label span:nth-child(2) {bottom: 50%; transform: transla
 
 .project-detail {margin-top:30px; margin-bottom: 30px; display: grid; margin-left: 15%;}
 .project-detail > * {margin: auto;}
-
-.projects-body {
-    border: solid 1px black;
-}
-
 
 .detail-title {padding: 10px;}
 .detail-title > h3 {font-size: 1.5rem;}
@@ -175,47 +171,18 @@ p #aws {background-image: url('../icon/icons8-amazon-web-services-96.png');}
 
 
 /* -----------------------------------------------*/
-.contact-body {
-    background-color: rgb(214, 235, 195);
-    -webkit-font-smoothing: antialiased;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
 
-.contact-title {text-shadow: 5px 5px 10px rgba(0, 0, 0, .2); font-size: 3rem; font-weight: 700; padding: 50px;}
+.contact-body {height: 700px; background-color: rgb(214, 235, 195); -webkit-font-smoothing: antialiased; display: grid; justify-content: center; align-items: center; text-align: center;}
 
-.contact-contents  {
-    display: block;
-    position: relative;
-    z-index: 0;
-    margin-top: -510px;
-    font-size: 25px;
-    color: black;
-}
+.contact-contents  {display: block; position: relative; margin-top: -340px; font-size: 1.5rem; color: rgb(73, 73, 73); line-height: 170%;}
+.contact-contents > p {display: grid; grid-template-columns: 1fr 1fr; text-align: left; margin-left: -150px;}
+.contact-contents > p > span {text-align: left;}
+.contact-contents > p span:nth-child(1) {font-weight: bold; padding-left: 150px;}
 
-.contact-contents > p span:nth-child(1) {
-    font-weight: bold;
-}
+.contact-txt {margin-top: 100px; z-index: 0;}
 
-.contact-contents > p span:nth-child(2) {
-    padding-left: 30px;
-}
-
-.contact-txt {
-    margin-top: 100px;
-    z-index: 0;
-}
-
-h1 span {
-    position: relative;
-    z-index: 0;
-    top: 20px;
-    animation: bounce 1s ease infinite alternate;
-    font-size: 60px;
-    color: #FFF;
-    text-shadow: 0 1px 0 #CCC,
+h1 span {position: relative; z-index: 0; top: 20px; animation: bounce 1s ease infinite alternate; font-size: 60px; color: #FFF;
+text-shadow: 0 1px 0 #CCC,
                0 2px 0 #CCC,
                0 3px 0 #CCC,
                0 4px 0 #CCC,
@@ -227,31 +194,14 @@ h1 span {
                0 10px 10px rgba(0, 0, 0, .4);
 }
 
-h1 span:nth-child(2) { animation-delay: .1s; }
-h1 span:nth-child(3) { animation-delay: .3s; }
-h1 span:nth-child(4) { animation-delay: .5s; }
-h1 span:nth-child(5) { animation-delay: .7s; }
-h1 span:nth-child(6) { animation-delay: .9s; }
-h1 span:nth-child(7) { animation-delay: 1.1s; }
-h1 span:nth-child(8) { animation-delay: 1.3s; }
-
-@keyframes bounce {
-  100% {
-    top: -20px;
-    text-shadow: 0 1px 0 #CCC,
-                 0 2px 0 #CCC,
-                 0 3px 0 #CCC,
-                 0 4px 0 #CCC,
-                 0 5px 0 #CCC,
-                 0 6px 0 #CCC,
-                 0 7px 0 #CCC,
-                 0 8px 0 #CCC,
-                 0 9px 0 #CCC,
-                 0 50px 25px rgba(0, 0, 0, .2);
-  }
-}
-
-/* -----------------------------------------------*/
+h1 span:nth-child(2) {animation-delay: .1s;}
+h1 span:nth-child(3) {animation-delay: .3s;}
+h1 span:nth-child(4) {animation-delay: .5s;}
+h1 span:nth-child(5) {animation-delay: .7s;}
+h1 span:nth-child(6) {animation-delay: .9s;}
+h1 span:nth-child(7) {animation-delay: 1.1s;}
+h1 span:nth-child(8) {animation-delay: 1.3s;}
+/*---------- contact end ----------*/
 
 
 .copy-right-body {

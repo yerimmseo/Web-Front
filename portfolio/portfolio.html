@@ -40,11 +40,11 @@
                 </div>
                 <div class="hidden-menu-body">
                     <div class="hidden-menus">
-                        <div id="home">Home</div>
-                        <div id="about">About</div>
-                        <div id="skills">Skills</div>
-                        <div id="projects">Projects</div>
-                        <div id="contact">Contact</div>
+                        <div id="h-home">Home</div>
+                        <div id="h-about">About</div>
+                        <div id="h-skills">Skills</div>
+                        <div id="h-projects">Projects</div>
+                        <div id="h-contact">Contact</div>
                     </div>
                     <div class="my-info">
                         <div id="name">서예림</div>
@@ -59,7 +59,7 @@
     <div class="contents-body">
         <div class="home-body"></div>
         <!-- home end -->
-        <div class="blink"></div>
+        <div class="blank" id="about-here"></div>
 
         <div class="about-body">
             <div class="about-title">About Me</div>
@@ -103,35 +103,44 @@
             </div>
         </div>
         <!-- about end -->
-        <div class="blink"></div>
+        <div class="blank" id="skills-here"></div>
         <div class="skills-body">
             <div class="skills-title">Skills</div>
             <div class="skills-contents">
-                <div class="frontend">
-                    <div id="html"></div>
-                    <div id="css"></div>
-                    <div id="js"></div>
-                    <div id="jquery"></div>
+                <div class="front-end">
+                    <h2>Front-end</h2>
+                    <hr>
+                    <ol class="front-skill">
+                        <li></li>
+                        <li></li>
+                    </ol>
                 </div>
-                <div class="backend">
-                    <div id="c"></div>
-                    <div id="python"></div>
-                    <div id="java"></div>
-                    <div id="jsp"></div>
-                    <div id="mysql"></div>
-                    <div id="oraclexe"></div>
+                <div class="back-end">
+                    <h2>Back-end</h2>
+                    <hr>
+                    <ol class="back-skill">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ol>
                 </div>
                 <div class="devops">
-                    <div id="aws"></div>
-                    <div id="junit"></div>
-                    <div id="linux"></div>
-                    <div id="git"></div>
-                    <div id="apache"></div>
+                    <h2>Devops</h2>
+                    <hr>
+                    <ol class="devops-skill">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ol>
                 </div>
             </div>
         </div>
         <!-- skills end -->
-        <div class="blink"></div>
+        <div class="blank" id="projects-here"></div>
         <div class="projects-body">
             <div class="projects-title">Projects</div>
             <div class="projects-nav-bar-body">
@@ -147,10 +156,10 @@
                 </div>
             </div>
             <div class="projects-contents">
-                <div class="projects-view">
+                <div class="projects-view1">
                     <div class="project-detail">
                         <div class="detail-title">
-                            <h3>카페 POS 시스템 제작<span>(6인 팀 프로젝트)</span></h3>
+                            <h3>카페 POS 시스템 제작 <span>(6인 팀 프로젝트)</span></h3>
                             <h4>2021.06.07 ~ 2021.06.20</h4>
                         </div>
                         <div class="detail-contents">
@@ -234,10 +243,55 @@
                         <div class="img-frame"></div>
                     </div>
                 </div>
+                <!-- first project end -->
+                <div class="projects-view2">
+                    <div class="project-detail2">
+                        <div class="detail-title2">
+                            <h3>프로젝트2 <span>(개인 프로젝트)</span></h3>
+                            <h4>2021.06.07 ~ 2021.06.20</h4>
+                        </div>
+                        <div class="detail-contents2">
+                            <p>준비중</p>
+                            <h3></h3>
+                            <div>
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="slidebox2"></div>
+                </div>
+                <!-- second project end -->
+                <div class="projects-view3">
+                    <div class="project-detail3">
+                        <div class="detail-title3">
+                            <h3>프로젝트3 <span>(팀 프로젝트)</span></h3>
+                            <h4>2021.06.07 ~ 2021.06.20</h4>
+                        </div>
+                        <div class="detail-contents3">
+                            <p>준비중</p>
+                            <h3></h3>
+                            <div>
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="slidebox3"></div>
+                </div>
+                <!-- third project end -->
             </div>
         </div>
         <!-- projects end -->
-        <div class="blink"></div>
+        <div class="blank" id="contact-here"></div>
         <div class="contact-body">
             <div class="contact-txt">
                 <h1>
@@ -273,6 +327,7 @@
         </footer>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/6d2da08e9d.js" crossorigin="anonymous"></script>
     <script src="./js/event.js"></script>
 </body>

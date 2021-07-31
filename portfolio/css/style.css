@@ -2,8 +2,8 @@
 
 /* 홈페이지 안에 div요소 꽉차게 하기 위함 */
 html, body {width: 100%; height: 100%; display: grid;}
-.contents-body > * {width: 100%; height: 900px;}
-.blink {margin-top: 20rem; margin-bottom: 20rem; width: 0; height: 0;}
+.contents-body > * {width: 100%; padding-top: 60px; transition: all 1s;}
+.blank {margin-top: 7rem; margin-bottom: 7rem; width: 0; height: 1px; transition: all 1s;}
 /*---------- html & body & contents-body end ----------*/
 
 /* .header-menu-body {z-index: 9999;} */
@@ -14,7 +14,6 @@ html, body {width: 100%; height: 100%; display: grid;}
 
 .nav-bar {display: flex; padding-right: 40px;}
 .nav-bar > div {display: flex; margin-left: 2rem; padding: 5px; font-size: 1.6rem; font-weight: 500; cursor: pointer;}
-
 
 /*--- 모바일 메뉴 버튼[=] 생성 ---*/
 input[id="hidden-btn"] {display: none;}
@@ -49,8 +48,18 @@ input[id="close-btn"] + label span:nth-child(2) {bottom: 50%; transform: transla
 #job {padding-top: 1%; font-size: 15px;}
 /*---------- header & nav-bar end ----------*/
 
-.about-body {border: solid 1px black; text-align: center; display: grid; height: auto;}
-.about-title {text-shadow: 5px 5px 10px rgba(0, 0, 0, .2); font-size: 3rem; font-weight: 700; padding: 50px;}
+.home-body {
+    border: solid 1px black;
+    text-align: center; display: grid; height: auto;
+}
+
+
+
+
+/*---------- home end ----------*/
+
+.about-body {text-align: center; display: grid; height: auto; width: 100%;}
+.about-title {color: rgb(96, 133, 22); text-shadow: 1px 1px 1px white, 4px 4px 4px rgba(0, 0, 0, .2); font-size: 3.5rem; font-weight: 700; padding: 50px; font-family: 'Noto Sans KR', sans-serif;}
 .about-contents {display: grid; grid-template-columns: 1fr 1fr; padding: 30px; height: auto;}
 
 .photo-body {border: solid 1px purple; margin: auto; width: 500px; height: 550px;}
@@ -85,13 +94,36 @@ input[id="close-btn"] + label span:nth-child(2) {bottom: 50%; transform: transla
 #contents {font-size: 1rem;}
 /*---------- about me end ----------*/
 
-.skills-body {border: solid 1px black; text-align: center; display: grid; height: auto;}
-.skills-title {text-shadow: 5px 5px 10px rgba(0, 0, 0, .2); font-size: 3rem; font-weight: 700; padding: 50px;}
+.skills-body {text-align: center; display: grid; height: auto;}
+.skills-title {color: rgb(96, 133, 22); text-shadow: 1px 1px 1px white, 4px 4px 4px rgba(0, 0, 0, .2); font-size: 3.5rem; font-weight: 700; padding: 50px; font-family: 'Noto Sans KR', sans-serif;}
+.skills-contents {height: auto; display: grid;}
+.skills-contents > div {border: solid 1px gray; box-shadow: 5px 5px 5px gray; padding: 10px; border-radius: 20px; margin: auto; margin-bottom: 40px; background-color: white;}
+.skills-contents > div > h2 {font-size: 2rem; padding: 5px; font-weight: 600; color: rgb(134, 133, 133); text-shadow: 1px 1px rgb(88, 88, 88);}
+.skills-contents > div > hr {margin-left: 20px; margin-right: 20px; border: 0; height: 1px; background-color: #CCC;}
+.skills-contents > div > ol {display: flex; flex-wrap: wrap; padding: 10px;}
+.skills-contents > div > ol > li {margin: 5px; background-repeat: no-repeat; background-size: contain; background-position: center; image-rendering: -webkit-optimize-contrast;}
 
-/* ---------------------------------*/
+.front-skill > li {width: 280px; height: 105px;}
+.front-skill > li:nth-child(1) {background-image: url('../icon/skills/front-end.png');}
+.front-skill > li:nth-child(2) {width: 240px; background-image: url('../icon/skills/jquery.png');}
 
-.projects-body {border: solid 1px black; text-align: center; display: grid; height: auto;}
-.projects-title {text-shadow: 5px 5px 10px rgba(0, 0, 0, .2); font-size: 3rem; font-weight: 700; padding: 50px; padding-bottom: 30px;}
+.back-skill > li {width: 90px; height: 90px;}
+.back-skill > li:nth-child(1) {background-image: url('../icon/skills/c++.png');}
+.back-skill > li:nth-child(2) {background-image: url('../icon/skills/python.png');}
+.back-skill > li:nth-child(3) {width: 105px; height: 110px; margin: auto; background-image: url('../icon/skills/java.png');}
+.back-skill > li:nth-child(4) {width: 160px; height: 100px; margin: auto; background-image: url('../icon/skills/spring.png');}
+.back-skill > li:nth-child(5) {width: 200px; height: 110px; margin: auto; background-image: url('../icon/skills/mysql.png');}
+
+.devops-skill > li {width: 240px; height: 110px; margin: 5px;}
+.devops-skill > li:nth-child(1) {background-image: url('../icon/skills/aws.png');}
+.devops-skill > li:nth-child(2) {background-image: url('../icon/skills/linux.png');}
+.devops-skill > li:nth-child(3) {background-image: url('../icon/skills/junit.png'); width: 220px; height: 90px; margin: auto;}
+.devops-skill > li:nth-child(4) {background-image: url('../icon/skills/git.png'); width: 200px; height: 90px; margin: auto;}
+.devops-skill > li:nth-child(5) {background-image: url('../icon/skills/github.png'); height: 90px; margin: auto;}
+/*---------- skills end ----------*/
+
+.projects-body {text-align: center; display: grid; height: auto;}
+.projects-title {color: rgb(96, 133, 22); text-shadow: 1px 1px 1px white, 4px 4px 4px rgba(0, 0, 0, .2); font-size: 3.5rem; font-weight: 700; padding: 50px; padding-bottom: 30px; font-family: 'Noto Sans KR', sans-serif;}
 .projects-contents {height: auto;}
 
 .projects-nav-bar-body input[id*="project"] {display: none;}
@@ -107,7 +139,10 @@ input[id="close-btn"] + label span:nth-child(2) {bottom: 50%; transform: transla
 .projects-nav-bar > li {display: inline; border-left: 1px solid #999; padding: 0 10px;}
 .projects-nav-bar > li:first-child {border-left: none;}
 
-.projects-view {display: grid; grid-template-columns: 0.8fr 1.2fr;}
+
+.projects-view1 {display: grid; grid-template-columns: 0.8fr 1.2fr;}
+.projects-view2 {display: none; grid-template-columns: 0.8fr 1.2fr;}
+.projects-view3 {display: none; grid-template-columns: 0.8fr 1.2fr;}
 
 .project-detail {margin-top:30px; margin-bottom: 30px; display: grid; margin-left: 15%;}
 .project-detail > * {margin: auto;}
@@ -127,10 +162,10 @@ input[id="close-btn"] + label span:nth-child(2) {bottom: 50%; transform: transla
 .detail-contents > p:nth-of-type(2) > span {margin-top: 10px; margin-right: 8px; border-radius: 10px; border: solid 1px gray; width: 70px; height: 70px; box-shadow: 1px 1px 1px gray;}
 
 p span {text-align: center; display: inline-block; background-size: contain; background-repeat: no-repeat;}
-p #java {background-image: url('../icon/pngwing.png');}
-p #db {background-image: url('../icon/database-icon.png');}
-p #git {background-image: url('../icon/git-icon.png');}
-p #aws {background-image: url('../icon/icons8-amazon-web-services-96.png');}
+p #java {background-image: url('../icon/skills/java.png'); background-position: center;}
+p #db {background-image: url('../icon/use-program/database.png'); }
+p #git {background-image: url('../icon/use-program/git.png');}
+p #aws {background-image: url('../icon/use-program/aws.png');}
 
 .github-team {text-align: center; display: block; width: 160px; padding: 13px; margin-left: 20px; font-size: 1rem; font-weight: 550; color: #425a73; background-color: white; border: 1px solid #425a73; border-radius: 5px; transition: all 0.4s; cursor: pointer;}
 .github-team:hover {background-color: #425a73; color: white;}
@@ -164,20 +199,15 @@ p #aws {background-image: url('../icon/icons8-amazon-web-services-96.png');}
 
 .img-frame {position: absolute; width: 800px; height: 570px; top: -28px; left: -48px; background-image: url('../project-slide/frame.png'); background-repeat: no-repeat; background-size: 794px 538px; image-rendering: -webkit-optimize-contrast;}
 /*---------- projects end ----------*/
-  
-  
 
+.contact-body {height: 800px; background-color: rgb(224, 245, 205); -webkit-font-smoothing: antialiased; display: grid; justify-content: center; align-items: center; text-align: center;}
 
-
-
-/* -----------------------------------------------*/
-
-.contact-body {height: 700px; background-color: rgb(214, 235, 195); -webkit-font-smoothing: antialiased; display: grid; justify-content: center; align-items: center; text-align: center;}
-
-.contact-contents  {display: block; position: relative; margin-top: -340px; font-size: 1.5rem; color: rgb(73, 73, 73); line-height: 170%;}
-.contact-contents > p {display: grid; grid-template-columns: 1fr 1fr; text-align: left; margin-left: -150px;}
+.contact-contents  {display: flex; position: relative; margin-top: -340px; font-size: 1.5rem; color: rgb(73, 73, 73); line-height: 170%;}
+.contact-contents > p {display: grid; grid-template-columns: 0.5fr 1.5fr; text-align: left;}
 .contact-contents > p > span {text-align: left;}
-.contact-contents > p span:nth-child(1) {font-weight: bold; padding-left: 150px;}
+.contact-contents > p span:nth-child(1) {font-weight: bold;}
+.contact-contents > p span:nth-child(2) {margin-left: 30px;}
+.contact-contents > p:last-of-type > span:nth-child(1) {margin-left: 50px;}
 
 .contact-txt {margin-top: 100px; z-index: 0;}
 
@@ -203,27 +233,8 @@ h1 span:nth-child(7) {animation-delay: 1.1s;}
 h1 span:nth-child(8) {animation-delay: 1.3s;}
 /*---------- contact end ----------*/
 
-
-.copy-right-body {
-    display: grid;
-    background-color: rgb(145, 144, 144);
-    height: 120px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    text-align: center;
-    color: white;
-    font-size: 13px;
-    user-select: none;
-}
-
-.link-icons > div {
-    display: inline-block;
-    align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 60px;
-    cursor: pointer;
-}
-
-
-
+.copy-right-body {display: grid; background-color: rgb(145, 144, 144); height: 150px; padding: 10px; text-align: center; color: white; font-size: 13px; user-select: none;}
+.copy-right {margin-top: -5px;}
+.link-icons {margin-top: 9px;}
+.link-icons > div {display: inline-block; align-items: center; padding-left: 10px; padding-right: 10px; font-size: 60px; cursor: pointer;}
+/*---------- copyright end ----------*/

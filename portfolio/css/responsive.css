@@ -4,13 +4,11 @@
 @media screen and (max-width: 890px) {
     .nav-bar {display: none !important;}
 }
-
 @media screen and (min-width: 600px) {
     .hidden-menus {font-size: 3.9rem;}
     #name {font-size: 1.8em;}
     #job {font-size: 1.2em;}
 }
-
 /* 화면이 커졌을 경우 header 히든 메뉴 버튼 사라지게 함 */
 @media screen and (min-width: 891px) {
     .hidden-btn + label {display: none !important;}
@@ -19,10 +17,19 @@
     input[id="hidden-btn"]:checked + label + div + div {right: 0; left: 100%;}    
 }
 /*--------------------- header & nav-bar -------------------------*/
-
+@media screen and (min-width: 1650px) {
+    .blank {margin-top: 10rem; margin-bottom: 10rem;}
+}
+@media screen and (max-width: 950px) {
+    .blank {margin-top: 5rem; margin-bottom: 5rem;}
+}
+@media screen and (max-width: 700px) {
+    .blank {margin-top: 3rem; margin-bottom: 3rem;}
+}
+/*--------------------- blank -------------------------*/
 
 /* 제일 화면 커지는 경우 */
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1650px) {
     .about-title {font-size: 4rem;}
     .about-contents {padding: 60px;}
     .info-body {margin-left: 3%;}
@@ -37,16 +44,7 @@
     #education-title, 
     #education-contents > div:nth-of-type(2n) {width: 90%;}
     #advantages-title {font-size: 2.4rem; margin-top: 30px;}
-    /*------------- about me -------------*/
-    h1 span {
-        font-size: 80px;
-    }
-
-    .contact-contents {
-        font-size: 30px;
-    }
 }
-
 /* 중간 크기 화면 */
 @media screen and (max-width: 950px) {
     .about-contents {padding: 0;}
@@ -64,9 +62,7 @@
     #advantages-title {font-size: 1.8rem;}
     #education-contents > div:nth-of-type(2n) {width: 90%;}
     .advantages {margin-top: 20px;}
-    /*------------- about me -------------*/
 }
-
 /* 화면 제일 작아지는 경우 */
 @media screen and (max-width: 700px) {
     .about-title {font-size: 2.6rem; padding: 40px;}
@@ -86,10 +82,75 @@
 
     #profile-contents, 
     #education-contents {padding-top: 5px;}
-    /*------------- about me -------------*/
-
 }
+/*--------------------- about me -------------------------*/
 
+@media screen and (min-width: 1650px) {
+    .skills-title {font-size: 4rem;}
+    .skills-contents > div {padding: 15px; margin-bottom: 45px;}
+    .skills-contents > div > h2 {font-size: 2.3rem; padding-top: 0;}
+    .skills-contents > div > ol > li {margin: 5px;}
+
+    .front-skill > li {width: 300px; height: 115px;}
+    .front-skill > li:nth-child(2) {width: 260px;}
+
+    .back-skill > li {width: 100px; height: 100px;}
+    .back-skill > li:nth-child(3) {width: 110px; height: 115px;}
+    .back-skill > li:nth-child(4) {width: 170px; height: 105px;}
+    .back-skill > li:nth-child(5) {width: 210px; height: 115px;}
+
+    .devops-skill > li {width: 250px; height: 120px;}
+    .devops-skill > li:nth-child(3) {width: 230px; height: 95px;}
+    .devops-skill > li:nth-child(4) {width: 210px; height: 95px;}
+    .devops-skill > li:nth-child(5) {height: 100px;}
+}
+@media screen and (max-width: 1350px) {
+    .skills-contents {display: flex; flex-wrap: wrap;}
+    .skills-contents > div {margin: auto; margin-top: 0;}
+    .skills-contents > div:first-of-type {height: auto;}
+
+    .skills-contents > div > ol {display: grid;}
+    .skills-contents > div:nth-child(2) {padding: 30px; padding-top: 10px; padding-bottom: 15px; margin-left: 0; margin-right: 0;}
+
+    .skills-contents > div > ol > li {margin: auto; margin-bottom: 10px;}
+
+    .front-skill > li {width: 240px; height: 100px;}
+
+    .back-skill > li {width: 85px; height: 85px;}
+    .back-skill > li:nth-child(3) {width: 200px; background-image: url('../icon/skills/java2.png');}
+    .back-skill > li:nth-child(4) {width: 200px; height: 90px; background-image: url('../icon/skills/spring2.png');}
+
+    .devops-skill > li:nth-child(1) {width: 230px; height: 105px;}
+    .devops-skill > li:nth-child(3) {width: 220px; height: 80px; margin-bottom: 5px;}
+    .devops-skill > li:nth-child(4) {margin-bottom: 5px;}
+    .devops-skill > li:nth-child(5) {width: 220px;}
+}
+@media screen and (max-width: 990px) {
+    .skills-contents {display: grid;}
+    .skills-contents > div:nth-child(2) {margin: auto; margin-bottom: 20px;}
+    .skills-contents > div {margin-bottom: 20px;}
+}
+@media screen and (max-width: 700px) {
+    .skills-title {font-size: 2.6rem; padding: 40px;}
+    .skills-contents > div {padding: 2px;}
+    .skills-contents > div:nth-child(1) {padding-top: 10px;}
+    .skills-contents > div:nth-child(3) {padding: 20px; padding-top: 10px; padding-bottom: 10px;}
+    .skills-contents > div > h2 {font-size: 1.5rem;}
+
+    .front-skill > li {width: 190px; height: 90px;}
+
+    .back-skill > li {width: 75px; height: 75px;}
+    .back-skill > li:nth-child(3) {width: 180px; height: 95px;}
+    .back-skill > li:nth-child(4) {width: 180px;}
+    .back-skill > li:nth-child(5) {width: 180px; height: 95px;}
+
+    .devops-skill > li:nth-child(1) {width: 190px; height: 100px;}
+    .devops-skill > li:nth-child(2) {width: 200px; height: 100px;}
+    .devops-skill > li:nth-child(3) {width: 200px; height: 70px; margin-bottom: 5px;}
+    .devops-skill > li:nth-child(4) {height: 75px;}
+    .devops-skill > li:nth-child(5) {width: 190px;}
+}
+/*--------------------- skills -------------------------*/
 
 /* 화면이 제일 커지는 경우 */
 @media screen and (min-width: 1700px) {
@@ -120,15 +181,16 @@
 }
 /* 화면 중간일 때1 프레임 세로로 변경 */
 @media screen and (max-width: 1450px) {
-    .projects-view {display: flex; flex-direction: column-reverse;}
+    .projects-view1 {display: flex; flex-direction: column-reverse;}
     .project-detail {margin: 0;}
 
     .slidebox {margin-top: 30px; margin-bottom: 30px;}
 
     .detail-contents > div:first-of-type > ul {display: grid; grid-template-columns: 1fr 1fr;}
     .detail-contents > div:first-of-type > ul > li:nth-of-type(2n) {margin-left: 40px;}
-
-    .img-frame {background-size: 794px 535px;}
+    
+    .slidebox {max-width: 650px;}
+    .img-frame {background-size: 740px 498px; left: -45px; top: -26px;}
 
     .detail-contents > p:first-of-type {margin-bottom: 10px;}
     .detail-contents > h3 {margin-bottom: 1px;}
@@ -172,12 +234,12 @@
 
     .slidebox {max-width: 100%; height: auto; margin: 10px; border: solid 15px black; border-radius: 33px; box-sizing: border-box; overflow: hidden; box-shadow: 1px 1px 3px black;}
     .img-frame {display: none;}
-    #p1 {content: url('../project-slide/min-width/slide1-1.png');}
-    #p2 {content: url('../project-slide/min-width/slide2-1.png');}
-    #p3 {content: url('../project-slide/min-width/slide3-1.png');}
-    #p4 {content: url('../project-slide/min-width/slide4-1.png');}
-    #p5 {content: url('../project-slide/min-width/slide5-1.png');}
-    #p6 {content: url('../project-slide/min-width/slide6-1.png');}
+    #p1 {content: url('../project-slide/max-width700/slide1-1.png');}
+    #p2 {content: url('../project-slide/max-width700/slide2-1.png');}
+    #p3 {content: url('../project-slide/max-width700/slide3-1.png');}
+    #p4 {content: url('../project-slide/max-width700/slide4-1.png');}
+    #p5 {content: url('../project-slide/max-width700/slide5-1.png');}
+    #p6 {content: url('../project-slide/max-width700/slide6-1.png');}
 
     .slidebox .slide-control [class*="control"] label.prev {left: 41%;}
     .slidebox .slide-control [class*="control"] label.next {right: 41%;}
@@ -197,54 +259,48 @@
 }
 /*--------------------- projects -------------------------*/
 
+@media screen and (min-width: 1600px) {
+    .contact-body {height: 1000px;}
+    h1 span {font-size: 75px; margin-top: -100px;}
+}
+@media screen and (max-width: 920px) {
+    .contact-body {height: 700px;}
+    .contact-contents {display: grid;}
+    .contact-contents > p:last-of-type > span:nth-child(1) {margin: 0;}
+    .contact-contents {font-size: 1.3rem;}
+    .contact-contents > p:first-of-type {margin-top: 20px;}
+    h1 span {font-size: 55px; margin-top: -100px;}
+}
 @media screen and (max-width: 700px) {
     .contact-body {height: 500px;}
     .contact-txt {margin: auto; margin-bottom: 180px;}
     .contact-contents {font-size: 1rem; margin-top: -330px;}
-    .contact-contents > p {margin-left: -100px;}
-
-
-
-    .copy-right-body  {
-        font-size: 11px;
-    }
-
-    h1 span {
-        font-size: 40px;
-    }
-
- 
-
-
-    
-    p span:nth-child(2) {
-        padding-left: 15px;
-    }
-
-    h1 span {
-        z-index: -1;
-    }
-
-    .link-icons > div {
-        font-size: 55px;
-    }
+    .contact-contents > p {margin-left: 20px; grid-template-columns: 0.7fr 1.3fr;}
+    .contact-contents > p span:nth-child(2) {margin-left: 0;}
 }
 /*--------------------- contact -------------------------*/
 
+@media screen and (max-width: 700px) {
+    .copy-right-body  {font-size: 11px;}
+    h1 span {font-size: 40px; z-index: -1;}
+    p span:nth-child(2) {padding-left: 15px;}
+    .link-icons > div {font-size: 55px;}
+}
+/*--------------------- copyright -------------------------*/
 
 /* animation */
 @keyframes bounce {
     100% {
-      top: -20px;
-      text-shadow: 0 1px 0 #CCC,
-                   0 2px 0 #CCC,
-                   0 3px 0 #CCC,
-                   0 4px 0 #CCC,
-                   0 5px 0 #CCC,
-                   0 6px 0 #CCC,
-                   0 7px 0 #CCC,
-                   0 8px 0 #CCC,
-                   0 9px 0 #CCC,
-                   0 50px 25px rgba(0, 0, 0, .2);
+        top: -20px;
+        text-shadow: 0 1px 0 #CCC,
+                     0 2px 0 #CCC,
+                     0 3px 0 #CCC,
+                     0 4px 0 #CCC,
+                     0 5px 0 #CCC,
+                     0 6px 0 #CCC,
+                     0 7px 0 #CCC,
+                     0 8px 0 #CCC,
+                     0 9px 0 #CCC,
+                     0 50px 25px rgba(0, 0, 0, .2);
     }
-  }
+}

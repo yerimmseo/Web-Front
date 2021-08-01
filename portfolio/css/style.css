@@ -2,15 +2,16 @@
 
 /* 홈페이지 안에 div요소 꽉차게 하기 위함 */
 html, body {width: 100%; height: 100%; display: grid;}
+body {background-color: rgb(219, 232, 217, 0.3);}
 .contents-body > * {width: 100%; padding-top: 60px; transition: all 1s;}
-.blank {margin-top: 7rem; margin-bottom: 7rem; width: 0; height: 1px; transition: all 1s;}
+.blank {margin-top: 8rem; margin-bottom: 8rem; width: 0; height: 1px; transition: all 1s;}
 /*---------- html & body & contents-body end ----------*/
 
 /* .header-menu-body {z-index: 9999;} */
 .header {position: fixed; display: flex; left: 0; right: 0; padding: 15px; margin-top: 1.3rem; justify-content: space-between; align-items: center; user-select: none; transition: all .5s;}
-.header.on {position: fixed; top: 0; margin-top: 0; height: 80px; background-color: rgb(255, 255, 255, .9); box-shadow: 0px 3px 5px rgb(233, 233, 233); z-index: 9999; transition: all .5s;}
+.header.on {position: fixed; top: 0; margin-top: 0; height: 80px; background-color: rgb(255, 255, 255, .8); box-shadow: 0px 3px 5px rgb(233, 233, 233); z-index: 9999; transition: all .5s;}
 
-.header-name {font-size: 35px; font-weight: 800;  margin-left: 3%; color: darkseagreen;}
+.header-name {font-size: 40px; font-weight: 800;  margin-left: 3%; color: rgb(245, 118, 33); cursor: pointer; transition: all .5s;}
 
 .nav-bar {display: flex; padding-right: 40px;}
 .nav-bar > div {display: flex; margin-left: 2rem; padding: 5px; font-size: 1.6rem; font-weight: 500; cursor: pointer;}
@@ -48,27 +49,27 @@ input[id="close-btn"] + label span:nth-child(2) {bottom: 50%; transform: transla
 #job {padding-top: 1%; font-size: 15px;}
 /*---------- header & nav-bar end ----------*/
 
-.home-body {
-    border: solid 1px black;
-    text-align: center; display: grid; height: auto;
-}
+.home-body {position: relative; text-align: center; z-index: -1; padding-top: 800px; padding-bottom: 0.1px; height: auto;}
+.home-body .top-circles > div {min-width: 100px; min-height: 100px;}
+.home-body .top-circles .circles {position: absolute; z-index: -1; width: 19.7vw; height: 19.7vw; border-radius: 50%;}
+.home-body .top-circles .circle1 {top: 20%; left: -12%; background: linear-gradient(0deg, #9abcfc 0%, #fcd5f0 100%); box-shadow: 1px 1px 2px gray; animation: moving1 10s none infinite alternate;}
+.home-body .top-circles .circle2 {top: 50%; right: 45%; background: linear-gradient(0deg, rgb(163, 221, 207) 0%, rgb(235, 115, 35) 100%); box-shadow: 1px 1px 2px gray; animation: moving2 20s none infinite alternate;}
+.home-body .top-circles .circle3 {top: 65%; bottom: -80px; right: -8%; background: linear-gradient(0deg, rgb(177, 32, 221) 0%, rgb(254, 255, 168) 100%);  box-shadow: 1px 1px 2px gray; animation: moving3 5s none infinite alternate;}
 
-
-
-
+.first-home {margin-top: -450px; text-align: center; position: relative; z-index: 0;}
+.hello {text-align: center; position: relative; font-size: 3.5rem; font-weight: 700; color: teal; text-shadow: 0 1px black;}
+.top-name {text-align: center; position: relative; font-size: 5rem; font-weight: 700; color: rgb(41, 41, 41); text-shadow: 0 0 2px white; margin-top: 20px;}
+.portfolio {font-size: 4rem; font-weight: 700; color: rgb(41, 41, 41); text-shadow: 0 0 2px white; margin-bottom: 20px;}
+.top-job {text-align: center; position: relative; font-size: 2.9rem; font-weight: 500; color: white; text-shadow: 1px 1px 10px rgb(156, 156, 156);}
 /*---------- home end ----------*/
 
 .about-body {text-align: center; display: grid; height: auto; width: 100%;}
-.about-title {color: rgb(96, 133, 22); text-shadow: 1px 1px 1px white, 4px 4px 4px rgba(0, 0, 0, .2); font-size: 3.5rem; font-weight: 700; padding: 50px; font-family: 'Noto Sans KR', sans-serif;}
+.about-title {color: rgb(129, 161, 144); text-shadow: 0 1px black, 4px 4px 4px rgba(0, 0, 0, .2); font-size: 3.5rem; font-weight: 700; padding: 50px; font-family: 'Noto Sans KR', sans-serif;}
 .about-contents {display: grid; grid-template-columns: 1fr 1fr; padding: 30px; height: auto;}
 
-.photo-body {border: solid 1px purple; margin: auto; width: 500px; height: 550px;}
-#photo {
-    /* background-image: url("../icon/profile.jpg");
-    background-repeat: no-repeat;
-    background-size: contain; */
-    width: 100%; height: 100%; padding: 10%;
-}
+.photo-body {margin: auto; width: 550px; height: 550px; position: relative;}
+#photo {background-image: url("../icon/profile.jpg"); background-repeat: no-repeat; background-size: contain; border-radius: 3px; width: 100%; height: 100%; padding: 10%; position: relative;}
+#photo-base {position: absolute; z-index: -1; top: 115px; right: -70px; width: 800px; height: 500px; border-radius: 3px; background-color: rgb(209, 230, 193, 0.7); transition: all 1s;}
 
 .info-body {margin: auto;}
 .info-body > * {margin-left: 5%;}
@@ -95,9 +96,9 @@ input[id="close-btn"] + label span:nth-child(2) {bottom: 50%; transform: transla
 /*---------- about me end ----------*/
 
 .skills-body {text-align: center; display: grid; height: auto;}
-.skills-title {color: rgb(96, 133, 22); text-shadow: 1px 1px 1px white, 4px 4px 4px rgba(0, 0, 0, .2); font-size: 3.5rem; font-weight: 700; padding: 50px; font-family: 'Noto Sans KR', sans-serif;}
+.skills-title {color: rgb(129, 161, 144); text-shadow: 0 1px black, 4px 4px 4px rgba(0, 0, 0, .2); font-size: 3.5rem; font-weight: 700; padding: 50px; font-family: 'Noto Sans KR', sans-serif;}
 .skills-contents {height: auto; display: grid;}
-.skills-contents > div {border: solid 1px gray; box-shadow: 5px 5px 5px gray; padding: 10px; border-radius: 20px; margin: auto; margin-bottom: 40px; background-color: white;}
+.skills-contents > div {border: solid 1px gray; box-shadow: 5px 5px 5px gray; padding: 10px; border-radius: 20px; margin: auto; margin-bottom: 40px; background-color: rgb(255, 255, 255, 0.7);}
 .skills-contents > div > h2 {font-size: 2rem; padding: 5px; font-weight: 600; color: rgb(134, 133, 133); text-shadow: 1px 1px rgb(88, 88, 88);}
 .skills-contents > div > hr {margin-left: 20px; margin-right: 20px; border: 0; height: 1px; background-color: #CCC;}
 .skills-contents > div > ol {display: flex; flex-wrap: wrap; padding: 10px;}
@@ -123,7 +124,7 @@ input[id="close-btn"] + label span:nth-child(2) {bottom: 50%; transform: transla
 /*---------- skills end ----------*/
 
 .projects-body {text-align: center; display: grid; height: auto;}
-.projects-title {color: rgb(96, 133, 22); text-shadow: 1px 1px 1px white, 4px 4px 4px rgba(0, 0, 0, .2); font-size: 3.5rem; font-weight: 700; padding: 50px; padding-bottom: 30px; font-family: 'Noto Sans KR', sans-serif;}
+.projects-title {color: rgb(129, 161, 144); text-shadow: 0 1px black, 4px 4px 4px rgba(0, 0, 0, .2); font-size: 3.5rem; font-weight: 700; padding: 50px; padding-bottom: 30px; font-family: 'Noto Sans KR', sans-serif;}
 .projects-contents {height: auto;}
 
 .projects-nav-bar-body input[id*="project"] {display: none;}
@@ -161,13 +162,13 @@ input[id="close-btn"] + label span:nth-child(2) {bottom: 50%; transform: transla
 .detail-contents > p:nth-of-type(2) {margin-bottom: 20px; font-size: 1.2rem; font-weight: bold;}
 .detail-contents > p:nth-of-type(2) > span {margin-top: 10px; margin-right: 8px; border-radius: 10px; border: solid 1px gray; width: 70px; height: 70px; box-shadow: 1px 1px 1px gray;}
 
-p span {text-align: center; display: inline-block; background-size: contain; background-repeat: no-repeat;}
-p #java {background-image: url('../icon/skills/java.png'); background-position: center;}
+p span {text-align: center; display: inline-block; background-size: contain; background-repeat: no-repeat; background-color: rgb(255, 255, 255, 0.8);}
+p #java {background-image: url('../icon/use-program/java.png'); background-position: center;}
 p #db {background-image: url('../icon/use-program/database.png'); }
 p #git {background-image: url('../icon/use-program/git.png');}
 p #aws {background-image: url('../icon/use-program/aws.png');}
 
-.github-team {text-align: center; display: block; width: 160px; padding: 13px; margin-left: 20px; font-size: 1rem; font-weight: 550; color: #425a73; background-color: white; border: 1px solid #425a73; border-radius: 5px; transition: all 0.4s; cursor: pointer;}
+.github-team {text-align: center; display: block; width: 160px; padding: 13px; margin-left: 20px; font-size: 1rem; font-weight: 550; color: #425a73; background-color: rgb(255, 255, 255, 0.8); border: 1px solid #425a73; border-radius: 5px; transition: all 0.4s; cursor: pointer;}
 .github-team:hover {background-color: #425a73; color: white;}
 
 .slidebox {max-width:700px; margin:auto; position:relative;}
@@ -177,9 +178,9 @@ p #aws {background-image: url('../icon/use-program/aws.png');}
 .slidebox .slidelist .slideitem > a {display:block; width:auto; position:relative;}
 .slidebox .slidelist .slideitem > a img {max-width:100%; height: auto; image-rendering: -webkit-optimize-contrast;}
 
-.slidebox .slide-control [class*="control"] label {position:absolute; z-index:10; top:50%; transform:translateY(-50%); padding:20px; border-radius: 5px; cursor:pointer;}
-.slidebox .slide-control [class*="control"] label.prev {left:-67px; background:rgb(206, 206, 206) url('../icon/left-arrow.png') center center / 50% no-repeat; transition: all .5s;}
-.slidebox .slide-control [class*="control"] label.next {right:-65px; background:rgb(206, 206, 206) url('../icon/right-arrow.png') center center / 50% no-repeat; transition: all .5s;}
+.slidebox .slide-control [class*="control"] label {position:absolute; z-index:10; top:52%; transform:translateY(-51%); padding:20px; border-radius: 5px; cursor:pointer;}
+.slidebox .slide-control [class*="control"] label.prev {left:-50px; background:rgb(206, 206, 206) url('../icon/left-arrow.png') center center / 50% no-repeat; transition: all .5s;}
+.slidebox .slide-control [class*="control"] label.next {right:-44px; background:rgb(206, 206, 206) url('../icon/right-arrow.png') center center / 50% no-repeat; transition: all .5s;}
 
 [name="slide"] {display:none;}
 #slide01:checked ~ .slidelist .slideitem {left:0;}
@@ -197,31 +198,32 @@ p #aws {background-image: url('../icon/use-program/aws.png');}
 #slide05:checked ~ .slide-control .control05 {display:block;}
 #slide06:checked ~ .slide-control .control06 {display:block;}
 
-.img-frame {position: absolute; width: 800px; height: 570px; top: -28px; left: -48px; background-image: url('../project-slide/frame.png'); background-repeat: no-repeat; background-size: 794px 538px; image-rendering: -webkit-optimize-contrast;}
+.img-frame {position: absolute; width: 860px; height: 570px; top: -23px; left: -83px; background-image: url('../project-slide/frame2.png'); background-repeat: no-repeat; background-size: 860px 530px; image-rendering: -webkit-optimize-contrast;}
 /*---------- projects end ----------*/
 
-.contact-body {height: 800px; background-color: rgb(224, 245, 205); -webkit-font-smoothing: antialiased; display: grid; justify-content: center; align-items: center; text-align: center;}
+.contact-body {height: 900px;-webkit-font-smoothing: antialiased; display: grid; justify-content: center; align-items: center; text-align: center;}
 
-.contact-contents  {display: flex; position: relative; margin-top: -340px; font-size: 1.5rem; color: rgb(73, 73, 73); line-height: 170%;}
-.contact-contents > p {display: grid; grid-template-columns: 0.5fr 1.5fr; text-align: left;}
-.contact-contents > p > span {text-align: left;}
+.contact-txt {z-index: 0; margin: auto; transform: translateY(50%);}
+
+.contact-contents  {font-size: 1.5rem; color: rgb(73, 73, 73); line-height: 170%; margin-top: -90%;}
+.contact-contents > p {display: grid;} 
+.contact-contents > p:first-of-type {margin-bottom: 15px;}
+.contact-contents > p > span {background-color: transparent; display: inline-block;}
 .contact-contents > p span:nth-child(1) {font-weight: bold;}
-.contact-contents > p span:nth-child(2) {margin-left: 30px;}
-.contact-contents > p:last-of-type > span:nth-child(1) {margin-left: 50px;}
 
-.contact-txt {margin-top: 100px; z-index: 0;}
 
-h1 span {position: relative; z-index: 0; top: 20px; animation: bounce 1s ease infinite alternate; font-size: 60px; color: #FFF;
-text-shadow: 0 1px 0 #CCC,
-               0 2px 0 #CCC,
-               0 3px 0 #CCC,
-               0 4px 0 #CCC,
-               0 5px 0 #CCC,
-               0 6px 0 transparent,
-               0 7px 0 transparent,
-               0 8px 0 transparent,
-               0 9px 0 transparent,
-               0 10px 10px rgba(0, 0, 0, .4);
+h1 span {position: relative; z-index: 0; top: 20px; animation: bounce 1s ease infinite alternate; font-size: 60px; color: rgb(209, 230, 193);
+text-shadow: 1px 1px 3px white,
+             0 1px 0 #CCC,
+             0 2px 0 #CCC,
+             0 3px 0 #CCC,
+             0 4px 0 #CCC,
+             0 5px 0 #CCC,
+             0 6px 0 transparent,
+             0 7px 0 transparent,
+             0 8px 0 transparent,
+             0 9px 0 transparent,
+             0 10px 10px rgba(0, 0, 0, .4);
 }
 
 h1 span:nth-child(2) {animation-delay: .1s;}

@@ -1,13 +1,6 @@
 // body
 const body = document.querySelector('body');
-// header
-const header = document.querySelector('.header');
-// nav-bar
-const home_btn = document.querySelector('#home');
-const about_btn = document.querySelector('#about');
-const skills_btn = document.querySelector('#skills');
-const projects_btn = document.querySelector('#projects')
-const contact_btn = document.querySelector('#contact');
+
 // hidden-nav-bar
 const hidden_btn = document.querySelector('.hidden-btn');
 const hidden_nav_bar = document.querySelector('.hidden-nav-bar');
@@ -19,58 +12,64 @@ const h_about_btn = document.querySelector('#h-about');
 const h_skills_btn = document.querySelector('#h-skills');
 const h_projects_btn = document.querySelector('#h-projects')
 const h_contact_btn = document.querySelector('#h-contact');
-// projects
-const project1_btn = document.querySelector('#project01');
-const project2_btn = document.querySelector('#project02');
-const project3_btn = document.querySelector('#project03');
 
-const project_view1 = document.querySelector('.projects-view1');
-const project_view2 = document.querySelector('.projects-view2');
-const project_view3 = document.querySelector('.projects-view3');
+// header
+$(window).scroll(() => {
+    var $header = $('.header');
 
-const github_team = document.querySelector('.github-team');
-
-// copyright
-const github = document.querySelector('#github');
-const instagram = document.querySelector('#instagram');
-
-// header event
-window.addEventListener('scroll', (e) => {
     if (pageYOffset >= 10) {
-        header.classList.add('on');
+        $header.addClass('on');
     } else {
-        header.classList.remove('on');
+        $header.removeClass('on');
     }
 });
 
-// nav-bar event
-home_btn.addEventListener('click', (e) => {
-    document.querySelector('.home-body').scrollIntoView(true);
+// nav-bar
+$(function() {
+    var $headerName = $('.header-name');
+    var $homeBtn = $('#home');
+    var $aboutBtn = $('#about');
+    var $skillsBtn = $('#skills');
+    var $projectsBtn = $('#projects');
+    var $contactBtn = $('#contact');
+   
+    var $home = $('.home-body');
+    var $about = $('.about-body');
+    var $skills = $('.skills-body');
+    var $projects = $('.projects-body');
+    var $contact = $('.contact-body');
+
+    $headerName.click(() => {
+        $('html, body').stop().animate({scrollTop: $home.offset().top}, 50);
+    })
+
+    $homeBtn.click(() => {
+        $('html, body').stop().animate({scrollTop: $home.offset().top}, 100);
+    });
+
+    $aboutBtn.click(() => {
+        $('html, body').stop().animate({scrollTop: $about.offset().top}, 100);
+    });
+
+    $skillsBtn.click(() => {
+        $('html, body').stop().animate({scrollTop: $skills.offset().top}, 100);
+    });
+
+    $projectsBtn.click(() => {
+        $('html, body').stop().animate({scrollTop: $projects.offset().top}, 100);
+    });
+
+    $contactBtn.click(() => {
+        $('html, body').stop().animate({scrollTop: $contact.offset().top}, 100);
+    })
 });
 
-about_btn.addEventListener('click', (e) => {
-    document.querySelector('.about-body').scrollIntoView(true);
-});
-
-skills_btn.addEventListener('click', (e) => {
-    document.querySelector('.skills-body').scrollIntoView(true);
-});
-
-projects_btn.addEventListener('click', (e) => {
-    document.querySelector('.projects-body').scrollIntoView(true);
-});
-
-contact_btn.addEventListener('click', (e) => {
-    document.querySelector('.contact-body').scrollIntoView(true);
-});
-
-// hidden-nav-bar event
+// hidden-nav-bar
 function openHiddenNavBar() {
     hidden_nav_bar_body.setAttribute('style', 'display: flex');
 }
 
 function closeHiddenNavBar() {
-    // x버튼 누를 시 메뉴 버튼의 checked를 해제시켜준다.
     hidden_btn.checked = false;
     close_btn.checked = false;
     hidden_nav_bar_body.setAttribute('style', 'display: none');
@@ -129,40 +128,52 @@ h_contact_btn.addEventListener('click', (e) => {
     document.querySelector('.contact-body').scrollIntoView(true);
 });
 
-// project -> github바로가기 event
-$(document).ready(function(){
-    $('#project01').click(function() {
-        $('.projects-view1').fadeIn(1000);
-        $('.projects-view2').fadeOut(0);
-        $('.projects-view3').fadeOut(0);
+// project
+$(function() {
+    var $project01 = $('#project01');
+    var $project02 = $('#project02');
+    var $project03 = $('#project03');
+    var $projectView1 = $('.projects-view1');
+    var $projectView2 = $('.projects-view2');
+    var $projectView3 = $('.projects-view3');
+    var $githubTeam = $('.github-team');
+
+    $project01.click(() => {
+        $projectView1.fadeIn(1000);
+        $projectView2.fadeOut(0);
+        $projectView3.fadeOut(0);
     })
-});
 
-$(document).ready(function(){
-    $('#project02').click(function() {
-        $('.projects-view1').fadeOut(0);
-        $('.projects-view2').fadeIn(1000);
-        $('.projects-view3').fadeOut(0);
+    $project02.click(() => {
+        $projectView1.fadeOut(0);
+        $projectView2.fadeIn(1000);
+        $projectView3.fadeOut(0);
     })
-});
 
-$(document).ready(function(){
-    $('#project03').click(function() {
-        $('.projects-view1').fadeOut(0);
-        $('.projects-view2').fadeOut(0);
-        $('.projects-view3').fadeIn(1000);
+    $project03.click(() => {
+        $projectView1.fadeOut(0);
+        $projectView2.fadeOut(0);
+        $projectView3.fadeIn(1000);
     })
+
+    $githubTeam.click(()=> {
+        window.open('https://github.com/TEAM-right/project-cafe.git');
+        return false;
+    });
 });
 
-github_team.addEventListener('click', (e) => {
-    window.open('https://github.com/TEAM-right/project-cafe.git');
-});
+// copyright
+$(function() {
+    var $github = $('#github');
+    var $instagram = $('#instagram');
 
-// copyright -> git, instagram event
-github.addEventListener('click', (e) => {
-    window.open('https://github.com/yerimmseo');
-});
+    $github.click(() => {
+        window.open('https://github.com/yerimmseo');
+        return false;
+    });
 
-instagram.addEventListener('click', (e) => {
-    window.open('https://www.instagram.com/yerimmseo/');
+    $instagram.click(() => {
+        window.open('https://www.instagram.com/yerimmseo/');
+        return false;
+    });
 });

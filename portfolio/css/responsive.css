@@ -16,7 +16,11 @@
     /* input이 checked가 된 경우, 크기를 늘렸을 때 히든 메뉴가 들어갈 수 있게 설정 */
     input[id="hidden-btn"]:checked + label + div + div {right: 0; left: 100%;}    
 }
+@media screen and (max-width: 700px) {
+    .header-name {font-size: 28px;}
+}
 /*--------------------- header & nav-bar -------------------------*/
+
 @media screen and (min-width: 1650px) {
     .blank {margin-top: 9rem; margin-bottom: 9rem;}
 }
@@ -27,6 +31,7 @@
     .blank {margin-top: 1rem; margin-bottom: 1rem;}
 }
 /*--------------------- blank -------------------------*/
+
 @media screen and (min-width: 1600px) {
     .home-body {height: 900px;}
     .home-body .top-circles .circle1 {margin-left: 15%;}
